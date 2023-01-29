@@ -15,6 +15,6 @@ app.get('/',function (req,res) {
     res.send('Merhaba Dünya!');
 });
  
-app.listen(3000,function () {
+app.listen(3131,function () {
     console.log('Uygulama 3000 portunda çalışmakta.')
 });
