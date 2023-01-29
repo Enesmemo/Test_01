@@ -9,4 +9,4 @@ client.on("message", message => {
       message.channel.send(`Pong - ${client.ws.ping}`)
    }
 })
-client.login("MTAzMzU0MzkwODUzNTMyMDU3Ng.GEIVHA.wiE3uLSZbKlcnBgdpkaHf6u52pI82rryvQKEVg")
+client.login("MTAzMzU0MzkwODUzNTMyMDU3Ng.G9j47l.OS1ds10bUtSvo2tqoujeMQsYwaJMBNOIBWqk8U")
