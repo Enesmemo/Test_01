@@ -1,69 +1,53 @@
---Made by : https://v3rmillion.net/member.php?action=profile&uid=507120
---Go vouch release thread : https://v3rmillion.net/showthread.php?tid=1040650
+getgenv().C_A_F = false;
 
 local library = loadstring(game:HttpGet(('https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wall%20v3')))()
 
-local w = library:CreateWindow("A") -- Creates the window
+local w = library:CreateWindow("DraWatX LOS") -- Creates the window
 
-local b = w:CreateFolder("B") -- Creates the folder(U will put here your buttons,etc)
+local b = w:CreateFolder("Farming")
 
-b:Label("Pretty Useless NGL",{
-    TextSize = 25; -- Self Explaining
-    TextColor = Color3.fromRGB(255,255,255); -- Self Explaining
-    BgColor = Color3.fromRGB(69,69,69); -- Self Explaining
-    
-}) 
-
-b:Button("Button",function()
-    print("Elym Winning")
+b:Toggle("City Auto Farm",function(bool)
+    getgenv().C_A_F = bool
+    if bool then
+        C_A_F()
+    end
 end)
 
-b:Toggle("Toggle",function(bool)
-    shared.toggle = bool
-    print(shared.toggle)
-end)
-
-b:Slider("Slider",{
-    min = 10; -- min value of the slider
-    max = 50; -- max value of the slider
-    precise = true; -- max 2 decimals
-},function(value)
-    print(value)
-end)
-
-b:Dropdown("Dropdown",{"A","B","C"},true,function(mob) --true/false, replaces the current title "Dropdown" with the option that t
-    print(mob)
-end)
-
-b:Bind("Bind",Enum.KeyCode.C,function() --Default bind
-    print("Yes")
-end)
-
-b:ColorPicker("ColorPicker",Color3.fromRGB(255,0,0),function(color) --Default color
-    print(color)
-end)
-
-b:Box("Box","number",function(value) -- "number" or "string"
-    print(value)
-end)
-
-b:DestroyGui()
-
---[[
-How to refresh a dropdown:
-1)Create the dropdown and save it in a variable
-local yourvariable = b:Dropdown("Hi",yourtable,function(a)
-    print(a)
-end)
-2)Refresh it using the function
-yourvariable:Refresh(yourtable)
-How to refresh a label:
-1)Create your label and save it in a variable
-local yourvariable = b:Label("Pretty Useless NGL",{
-    TextSize = 25; -- Self Explaining
-    TextColor = Color3.fromRGB(255,255,255);
-    BgColor = Color3.fromRGB(69,69,69);
-})
-2)Refresh it using the function
-yourvariable:Refresh("Hello") It will only change the text ofc
-]]
+function C_A_F()
+    spawn(function()
+        while (getgenv().C_A_F == true)
+        do
+            local args = {
+                [1] = "collectOrb",
+                [2] = "Red Orb",
+                [3] = "City"
+            }
+            game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args))
+            local args2 = {
+                [1] = "collectOrb",
+                [2] = "Blue Orb",
+                [3] = "City"
+            }
+            game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args2))
+            local args3 = {
+                [1] = "collectOrb",
+                [2] = "Orange Orb",
+                [3] = "City"
+            }
+            game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args3))
+            local args4 = {
+                [1] = "collectOrb",
+                [2] = "Yellow Orb",
+                [3] = "City"
+            }
+            game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args4))
+            local args5 = {
+                [1] = "collectOrb",
+                [2] = "Gem",
+                [3] = "City"
+            }
+            game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args5))
+            wait()
+        end
+    end)
+end
