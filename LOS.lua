@@ -25,5 +25,11 @@ do
         [3] = "City"
     }
     game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args4))
+    local args4 = {
+        [1] = "collectOrb",
+        [2] = "Gem",
+        [3] = "City"
+    }
+    game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args4))
     wait()
 end
