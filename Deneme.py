@@ -1,13 +1,6 @@
-import discord
-from discord.ext import commands
-
-bot = commands.Bot(command_prefix='') 
-@bot.event
-async def on_ready():
-    print(f'{bot.user} çalışmaya hazır!')
-
-@bot.command()
-async def hello(ctx):
-    await ctx.send('Hi!')
-
-bot.run('TOKEN')                       
+G.autoTap = true;
+while G.autoTap == true do
+    local args = {[1] = 1}
+    game:GetService("ReplicatedStorage").Packages._Index:FindFirstChild("sleitnick_comm@0.3.1").comm.Client.ClientRemoteSignal
+    wait()
+end
