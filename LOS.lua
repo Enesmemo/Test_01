@@ -1,4 +1,13 @@
-A_F = true;
+getgenv().C_A_F = false;
+
+local library - loadstring(game:HttpGet(('https://raw.githubusercontent.com/AlkaV3rm/UiLib/master/Lib.lua")))()
+
+local w = library:CreateWindow("DraWatX LOS") -- Creates the window
+
+local b - w:CreateFolder("Farming")
+            
+b: Toggle("City Auto Farm", function(bool)
+
 while (A_F == true)
 do
     local args = {
