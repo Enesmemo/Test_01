@@ -31,10 +31,5 @@ do
         [3] = "City"
     }
     game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args5))
-    local args6 = {
-        [1] = "openCrystal",
-        [2] = "Lightning Crystal"
-    }
-    game:GetService("ReplicatedStorage").rEvents.openCrystalRemote:InvokeServer(unpack(args6))
     wait()
 end
