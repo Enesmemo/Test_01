@@ -1,4 +1,5 @@
 getgenv().C_A_F = false;
+getgenv().A_R = false;
 
 local library = loadstring(game:HttpGet(('https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wall%20v3')))()
 
@@ -6,12 +7,31 @@ local w = library:CreateWindow("DraWatX LOS") -- Creates the window
 
 local b = w:CreateFolder("Farming")
 
+b:Toggle("Auto Rebirth",function(bool)
+    getgenv().A_R = bool
+    if bool then
+        A_R()
+    end
+end)
+
 b:Toggle("City Auto Farm",function(bool)
     getgenv().C_A_F = bool
     if bool then
         C_A_F()
     end
 end)
+
+function A_R()
+    spawn(function()
+        while (getgenv().A_R == true)
+        do
+            local args = {
+                [1] = "rebirthRequest"
+            }
+            game:GetService("ReplicatedStorage").rEvents.rebirthEvent:FireServer(unpack(args))
+        end
+    end)
+end
 
 function C_A_F()
     spawn(function()
