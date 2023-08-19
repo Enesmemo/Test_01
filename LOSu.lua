@@ -8,7 +8,7 @@ local b - w:CreateFolder("Farming")
             
 b: Toggle("City Auto Farm", function(bool)
 
-while (A_F == true)
+while (C_A_F == true)
 do
     local args = {
         [1] = "collectOrb",
