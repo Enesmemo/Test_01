@@ -1,6 +1,4 @@
-G.autoTap = true;
-while G.autoTap == true do
-    local args = {[1] = 1}
-    game:GetService("ReplicatedStorage").Packages._Index:FindFirstChild("sleitnick_comm@0.3.1").comm.Client.ClientRemoteSignal
-    wait()
+while(true)
+do
+    game:GetService("ReplicatedStorage").Packages._Index:FindFirstChild("sleitnick_knit@1.4.7").knit.Services.ToolService.RE.onClick:FireServer()
 end
