@@ -5,4 +5,4 @@ local w = library:CreateWindow("DraWatX LOS")
 local b = w:CreateFolder("Farming")
                                     
 b:Toggle("City Auto Farm", function(bool)
-end                                                                                              
+end)                                                                                              
