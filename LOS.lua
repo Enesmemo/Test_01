@@ -1,7 +1,9 @@
 getgenv().C_A_F = false;
 getgenv().MC_A_F = false;
 getgenv().SC_A_F = false;
+getgenv().MC_A_C = false;
 getgenv().C_A_C = false;
+getgenv().SC_A_C = false;
 getgenv().A_R = false;
 
 local library = loadstring(game:HttpGet(('https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wall%20v3')))()
@@ -47,6 +49,20 @@ c:Toggle("City Crystal",function(bool)
     end
 end)
 
+c:Toggle("Snow City Crystal",function(bool)
+    getgenv().SC_A_C = bool
+    if bool then
+        SC_A_C()
+    end
+end)
+
+c:Toggle("Magma City Crystal",function(bool)
+    getgenv().MC_A_C = bool
+    if bool then
+        MC_A_C()
+    end
+end)
+
 function C_A_C()
     spawn(function()
         while (getgenv().C_A_C == true)
@@ -54,6 +70,34 @@ function C_A_C()
             local args = {
                 [1] = "openCrystal",
                 [2] = "Lightning Crystal"
+            }
+            game:GetService("ReplicatedStorage").rEvents.openCrystalRemote:InvokeServer(unpack(args))
+            wait()
+        end
+    end)
+end
+
+function SC_A_C()
+    spawn(function()
+        while (getgenv().SC_A_C == true)
+        do
+            local args = {
+                [1] = "openCrystal",
+                [2] = "Snow Crystal"
+            }
+            game:GetService("ReplicatedStorage").rEvents.openCrystalRemote:InvokeServer(unpack(args))
+            wait()
+        end
+    end)
+end
+
+function MC_A_C()
+    spawn(function()
+        while (getgenv().MC_A_C == true)
+        do
+            local args = {
+                [1] = "openCrystal",
+                [2] = "Inferno Crystal"
             }
             game:GetService("ReplicatedStorage").rEvents.openCrystalRemote:InvokeServer(unpack(args))
             wait()
