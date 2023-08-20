@@ -29,6 +29,7 @@ function A_R()
                 [1] = "rebirthRequest"
             }
             game:GetService("ReplicatedStorage").rEvents.rebirthEvent:FireServer(unpack(args))
+            wait()
         end
     end)
 end
