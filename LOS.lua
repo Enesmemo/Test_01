@@ -76,7 +76,7 @@ end
 
 function SC_A_F()
     spawn(function()
-        while (getgenv().MC_A_F == true)
+        while (getgenv().SC_A_F == true)
         do
             local args = {
                 [1] = "collectOrb",
