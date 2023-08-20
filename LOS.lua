@@ -12,7 +12,7 @@ getgenv().A_R = false;
 
 local library = loadstring(game:HttpGet(('https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wall%20v3')))()
 
-local w = library:CreateWindow("DraWatX LOS") -- Creates the window
+local w = library:CreateWindow("DraWatX LOS")
 
 local b = w:CreateFolder("Farming")
 
