@@ -1,7 +1,9 @@
 getgenv().C_A_F = false;
 getgenv().MC_A_F = false;
+getgenv().LH_A_F = false;
 getgenv().SC_A_F = false;
 getgenv().MC_A_C = false;
+getgenv().LH_A_C = false;
 getgenv().C_A_C = false;
 getgenv().SC_A_C = false;
 getgenv().A_R = false;
@@ -42,6 +44,13 @@ b:Toggle("Magma City Auto Farm",function(bool)
     end
 end)
 
+b:Toggle("Legends Highway Auto Farm",function(bool)
+    getgenv().LH_A_F = bool
+    if bool then
+        LH_A_F()
+    end
+end)
+
 c:Toggle("City Crystal",function(bool)
     getgenv().C_A_C = bool
     if bool then
@@ -60,6 +69,13 @@ c:Toggle("Magma City Crystal",function(bool)
     getgenv().MC_A_C = bool
     if bool then
         MC_A_C()
+    end
+end)
+
+c:Toggle("Legends Highway Crystal",function(bool)
+    getgenv().LH_A_C = bool
+    if bool then
+        LH_A_C()
     end
 end)
 
@@ -98,6 +114,20 @@ function MC_A_C()
             local args = {
                 [1] = "openCrystal",
                 [2] = "Inferno Crystal"
+            }
+            game:GetService("ReplicatedStorage").rEvents.openCrystalRemote:InvokeServer(unpack(args))
+            wait()
+        end
+    end)
+end
+
+function LH_A_C()
+    spawn(function()
+        while (getgenv().LH_A_C == true)
+        do
+            local args = {
+                [1] = "openCrystal",
+                [2] = "Electro Legends Crystal"
             }
             game:GetService("ReplicatedStorage").rEvents.openCrystalRemote:InvokeServer(unpack(args))
             wait()
@@ -189,6 +219,45 @@ function MC_A_F()
                 [1] = "collectOrb",
                 [2] = "Gem",
                 [3] = "Magma City"
+            }
+            game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args5))
+            wait()
+        end
+    end)
+end
+
+function LH_A_F()
+    spawn(function()
+        while (getgenv().LH_A_F == true)
+        do
+            local args = {
+                [1] = "collectOrb",
+                [2] = "Red Orb",
+                [3] = "Legends Highway"
+            }
+            game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args))
+            local args2 = {
+                [1] = "collectOrb",
+                [2] = "Blue Orb",
+                [3] = "Legends Highway"
+            }
+            game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args2))
+            local args3 = {
+                [1] = "collectOrb",
+                [2] = "Orange Orb",
+                [3] = "Legends Highway"
+            }
+            game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args3))
+            local args4 = {
+                [1] = "collectOrb",
+                [2] = "Yellow Orb",
+                [3] = "Legends Highway"
+            }
+            game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args4))
+            local args5 = {
+                [1] = "collectOrb",
+                [2] = "Gem",
+                [3] = "Legends Highway"
             }
             game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args5))
             wait()
