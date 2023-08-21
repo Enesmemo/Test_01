@@ -23,6 +23,8 @@ local b = w:CreateFolder("Farming")
 
 local c = w:CreateFolder("Crystals")
 
+local d = w:CreateFolder("Settings") 
+
 a:Toggle("Codes",function(bool)
     getgenv().C_A = bool
     if bool then
@@ -121,7 +123,7 @@ c:Toggle("Legends Highway",function(bool)
     end
 end)
 
-w:DestroyGui()
+d:DestroyGui()
 
 function C_A_C()
     spawn(function()
