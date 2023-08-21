@@ -196,9 +196,33 @@ function C_A()
         while (getgenv().A_R == true)
         do
             local args = {
-                [1] = "rebirthRequest"
+                [1] = "hyper250"
             }
-            game:GetService("ReplicatedStorage").rEvents.rebirthEvent:FireServer(unpack(args))
+            game:GetService("ReplicatedStorage").rEvents.codeRemote:InvokeServer(unpack(args))
+            local args2 = {
+                [1] = "legends500"
+            }
+            game:GetService("ReplicatedStorage").rEvents.codeRemote:InvokeServer(unpack(args2))
+            local args3 = {
+                [1] = "launch200"
+            }
+            game:GetService("ReplicatedStorage").rEvents.codeRemote:InvokeServer(unpack(args3))
+            local args4 = {
+                [1] = "sparkles300"
+            }
+            game:GetService("ReplicatedStorage").rEvents.codeRemote:InvokeServer(unpack(args4))
+            local args5 = {
+                [1] = "SPRINT250"
+            }
+            game:GetService("ReplicatedStorage").rEvents.codeRemote:InvokeServer(unpack(args5))
+            local args6 = {
+                [1] = "speedchampion000"
+            }
+            game:GetService("ReplicatedStorage").rEvents.codeRemote:InvokeServer(unpack(args6))
+            local args7 = {
+                [1] = "racer300"
+            }
+            game:GetService("ReplicatedStorage").rEvents.codeRemote:InvokeServer(unpack(args7))
             wait()
         end
     end)
