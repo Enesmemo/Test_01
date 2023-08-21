@@ -193,7 +193,7 @@ end
 
 function C_A()
     spawn(function()
-        while (getgenv().A_R == true)
+        while (getgenv().C_A == true)
         do
             local args = {
                 [1] = "hyper250"
