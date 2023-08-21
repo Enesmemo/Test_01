@@ -1,24 +1,36 @@
 getgenv().C_A_F = false;
 getgenv().MC_A_F = false;
+getgenv().D_A_F = false;
 getgenv().S_A_F = false;
 getgenv().LH_A_F = false;
 getgenv().SC_A_F = false;
 getgenv().MC_A_C = false;
+getgenv().D_A_C = false;
 getgenv().S_A_C = false;
 getgenv().LH_A_C = false;
 getgenv().C_A_C = false;
 getgenv().SC_A_C = false;
 getgenv().A_R = false;
+getgenv().C_A = false;
 
 local library = loadstring(game:HttpGet(('https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wall%20v3')))()
 
 local w = library:CreateWindow("DraWatX LOS")
 
+local a = w:CreateFolder("Auto")
+
 local b = w:CreateFolder("Farming")
 
 local c = w:CreateFolder("Crystals")
 
-b:Toggle("Auto Rebirth",function(bool)
+a:Toggle("Codes",function(bool)
+    getgenv().C_A = bool
+    if bool then
+        C_A()
+    end
+end)
+
+a:Toggle("Rebirth",function(bool)
     getgenv().A_R = bool
     if bool then
         A_R()
@@ -160,6 +172,19 @@ function LH_A_C()
                 [2] = "Electro Legends Crystal"
             }
             game:GetService("ReplicatedStorage").rEvents.openCrystalRemote:InvokeServer(unpack(args))
+            wait()
+        end
+    end)
+end
+
+function C_A()
+    spawn(function()
+        while (getgenv().A_R == true)
+        do
+            local args = {
+                [1] = "rebirthRequest"
+            }
+            game:GetService("ReplicatedStorage").rEvents.rebirthEvent:FireServer(unpack(args))
             wait()
         end
     end)
