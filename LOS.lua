@@ -65,6 +65,13 @@ b:Toggle("Magma City",function(bool)
     end
 end)
 
+b:Toggle("Speed Desert",function(bool)
+    getgenv().D_A_F = bool
+    if bool then
+        D_A_F()
+    end
+end)
+
 b:Toggle("Legends Highway",function(bool)
     getgenv().LH_A_F = bool
     if bool then
@@ -97,6 +104,13 @@ c:Toggle("Magma City",function(bool)
     getgenv().MC_A_C = bool
     if bool then
         MC_A_C()
+    end
+end)
+
+c:Toggle("Speed Desert",function(bool)
+    getgenv().D_A_C = bool
+    if bool then
+        D_A_C()
     end
 end)
 
