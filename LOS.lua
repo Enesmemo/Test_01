@@ -121,7 +121,7 @@ c:Toggle("Legends Highway",function(bool)
     end
 end)
 
-c:DestroyGui()
+w:DestroyGui()
 
 function C_A_C()
     spawn(function()
