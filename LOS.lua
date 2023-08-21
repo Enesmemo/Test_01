@@ -135,6 +135,20 @@ function C_A_C()
     end)
 end
 
+function D_A_C()
+    spawn(function()
+        while (getgenv().D_A_C == true)
+        do
+            local args = {
+                [1] = "openCrystal",
+                [2] = "Electro Crystal"
+            }
+            game:GetService("ReplicatedStorage").rEvents.openCrystalRemote:InvokeServer(unpack(args))
+            wait()
+        end
+    end)
+end
+
 function S_A_C()
     spawn(function()
         while (getgenv().S_A_C == true)
