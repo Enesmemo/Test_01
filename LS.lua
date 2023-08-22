@@ -3,7 +3,8 @@ if game.PlaceId == 3652625463 then
     getgenv().S = false;
 
     function S()
-        while (getgenv().C_A == true) do
+        while (getgenv().C_A == true)
+        do
             game:GetService("ReplicatedStorage").RemoteEvent:FireServer({"SellMuscle"})
             wait()
         end
