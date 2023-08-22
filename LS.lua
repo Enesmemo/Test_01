@@ -32,10 +32,11 @@ function S()
         while (getgenv().S == true)
         do
             local args = {
-                [1] = "openCrystal",
-                [2] = "Lightning Crystal"
+                [1] = {
+                    [1] = "SellMuscle"
+                }
             }
-            game:GetService("ReplicatedStorage").rEvents.openCrystalRemote:InvokeServer(unpack(args))
+            game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
             wait()
         end
     end)
@@ -46,10 +47,11 @@ function C()
         while (getgenv().C == true)
         do
             local args = {
-                [1] = "openCrystal",
-                [2] = "Electro Crystal"
+                [1] = {
+                    [1] = "GainMuscle"
+                }
             }
-            game:GetService("ReplicatedStorage").rEvents.openCrystalRemote:InvokeServer(unpack(args))
+            game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
             wait()
         end
     end)
