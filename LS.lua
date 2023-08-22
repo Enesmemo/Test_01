@@ -5,3 +5,10 @@ local library = loadstring(game:HttpGet(('https://raw.githubusercontent.com/bloo
 local w = library:CreateWindow("DraWatX LS")
 
 local a = w:CreateFolder("Auto")
+
+a:Toggle("Click",function(bool)
+    getgenv().A_C = bool
+    if bool then
+        A_C()
+    end
+end)
