@@ -1,11 +1,21 @@
 if game.PlaceId == 3652625463 then
 
     getgenv().S = false;
+    getgenv().C = false;
 
     function S()
         spawn(function()
             while (getgenv().S == true) do
                 game:GetService("ReplicatedStorage").RemoteEvent:FireServer({"SellMuscle"})
+                wait()
+            end
+        end)
+    end
+
+    function C()
+        spawn(function()
+            while (getgenv().C == true) do
+                game:GetService("ReplicatedStorage").RemoteEvent:FireServer({"GainMuscle"})
                 wait()
             end
         end)
@@ -27,5 +37,14 @@ if game.PlaceId == 3652625463 then
             S()
         end
     })
+
+    AutoTab:AddToggle({
+        Name = "Click",
+        Callback = function(Value)
+            getgenv().C = Value
+            C()
+        end
+    })
+
 end
 OrionLib:Init()
