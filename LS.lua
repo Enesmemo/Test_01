@@ -3,11 +3,12 @@ if game.PlaceId == 3652625463 then
     getgenv().S = false;
 
     function S()
-        while (getgenv().C_A == true)
-        do
-            game:GetService("ReplicatedStorage").RemoteEvent:FireServer({"SellMuscle"})
-            wait()
-        end
+        spawn(function()
+            while (getgenv().S == true) do
+                game:GetService("ReplicatedStorage").RemoteEvent:FireServer({"SellMuscle"})
+                wait()
+            end
+        end)
     end
     
     local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
