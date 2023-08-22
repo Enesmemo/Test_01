@@ -3,7 +3,9 @@ if game.PlaceId == 3652625463 then
     getgenv().S = false;
 
     function S()
-        
+        spawn(function()
+        while (getgenv().C_A == true) do
+            game:GetService("ReplicatedStorage").RemoteEvent:FireServer({"SellMuscle"})
     
     local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
     local Window = OrionLib:MakeWindow({Name = "DraWatX LS", HidePremium = false, IntroEnabled = false, SaveConfig = true, ConfigFolder = "OrionTest"})
