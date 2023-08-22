@@ -25,17 +25,17 @@ local c = w:CreateFolder("Crystals")
 
 local d = w:CreateFolder("Settings") 
 
-a:Toggle("Codes",function(bool)
-    getgenv().C_A = bool
-    if bool then
-        C_A()
-    end
-end)
-
 a:Toggle("Rebirth",function(bool)
     getgenv().A_R = bool
     if bool then
         A_R()
+    end
+end)
+
+a:Toggle("Redeem Codes",function(bool)
+    getgenv().C_A = bool
+    if bool then
+        C_A()
     end
 end)
 
