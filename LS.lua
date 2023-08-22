@@ -15,7 +15,7 @@ end)
 
 function A_C()
     spawn(function()
-        while (getgenv().A_R == true)
+        while (getgenv().A_C == true)
         do
             game:GetService("ReplicatedStorage").RemoteEvent:FireServer({"GainMuscle"})
             wait()
