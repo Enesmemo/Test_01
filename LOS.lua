@@ -1,3 +1,4 @@
+if game.PlaceId == 3101667897 then
 getgenv().C_A_F = false;
 getgenv().MC_A_F = false;
 getgenv().D_A_F = false;
@@ -491,4 +492,5 @@ function C_A_F()
             wait()
         end
     end)
+end
 end
