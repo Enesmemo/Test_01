@@ -6,6 +6,7 @@ if game.PlaceId == 3652625463 then
         spawn(function()
             while (getgenv().C_A == true) do
                 game:GetService("ReplicatedStorage").RemoteEvent:FireServer({"SellMuscle"})
+                wait()
             end
         end)
     end
