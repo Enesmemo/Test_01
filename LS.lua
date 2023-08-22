@@ -12,3 +12,13 @@ a:Toggle("Click",function(bool)
         A_C()
     end
 end)
+
+function A_C()
+    spawn(function()
+        while (getgenv().A_R == true)
+        do
+            game:GetService("ReplicatedStorage").RemoteEvent:FireServer({"GainMuscle"})
+            wait()
+        end
+    end)
+end
