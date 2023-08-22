@@ -26,5 +26,32 @@ a:Toggle("Click",function(bool)
 end)
 
 d:DestroyGui()
-    
+
+function S()
+    spawn(function()
+        while (getgenv().S == true)
+        do
+            local args = {
+                [1] = "openCrystal",
+                [2] = "Lightning Crystal"
+            }
+            game:GetService("ReplicatedStorage").rEvents.openCrystalRemote:InvokeServer(unpack(args))
+            wait()
+        end
+    end)
+end
+
+function C()
+    spawn(function()
+        while (getgenv().C == true)
+        do
+            local args = {
+                [1] = "openCrystal",
+                [2] = "Electro Crystal"
+            }
+            game:GetService("ReplicatedStorage").rEvents.openCrystalRemote:InvokeServer(unpack(args))
+            wait()
+        end
+    end)
+end
 end
