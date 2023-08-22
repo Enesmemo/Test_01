@@ -16,7 +16,7 @@ if game.PlaceId == 3652625463 then
         spawn(function()
             while (getgenv().C == true) do
                 game:GetService("ReplicatedStorage").RemoteEvent:FireServer({"GainMuscle"})
-                wait(.00000000000000000000000000000000000000000000000000000000000000000001)
+                wait()
             end
         end)
     end
