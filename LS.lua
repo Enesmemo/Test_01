@@ -9,6 +9,8 @@ local w = library:CreateWindow("DraWatX LOS")
 
 local a = w:CreateFolder("Auto")
 
+local d = w:CreateFolder("Settings")
+
 a:Toggle("Sell",function(bool)
     getgenv().S = bool
     if bool then
@@ -22,4 +24,7 @@ a:Toggle("Click",function(bool)
         C()
     end
 end)
+
+d:DestroyGui()
+    
 end
