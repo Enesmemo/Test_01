@@ -9,4 +9,17 @@ local w = library:CreateWindow("DraWatX LOS")
 
 local a = w:CreateFolder("Auto")
 
+a:Toggle("Sell",function(bool)
+    getgenv().S = bool
+    if bool then
+        S()
+    end
+end)
+
+a:Toggle("Click",function(bool)
+    getgenv().C = bool
+    if bool then
+        C()
+    end
+end)
 end
