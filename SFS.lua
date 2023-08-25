@@ -6,9 +6,9 @@ local w = library:CreateWindow("DraWatX SFS")
 
 local a = w:CreateFolder("Auto")
 
-local b = w:CreateFolder("Settings")
+local d = w:CreateFolder("Settings")
 
-b:DestroyGui()
+d:DestroyGui()
 
 a:Toggle("Click",function(bool)
     getgenv().A_C = bool
@@ -19,7 +19,8 @@ end)
 
 function A_C()
   spawn(function)
-    while getgenv().A_C == true do  
+    while (getgenv().A_C) == true
+    do  
       game:GetService("ReplicatedStorage").Packages.Knit.Services.ClickService.RF.Click:InvokeServer()
       wait()
     end
