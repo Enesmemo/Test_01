@@ -2,13 +2,13 @@ if game.PlaceId == 9031522337 then
 
     local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 
-    local Window = OrionLib:MakeWindow({Name = "DraWatX RPGC", HidePremium = false, IntroEnabled = false, SaveConfig = true, ConfigFolder = "Win"})
+    local Window = OrionLib:MakeWindow({Name = "DraWatX RPGC", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
 
     MValue = ""
     getgenv().A_C = false;
 
     local AutoTab = Window:MakeTab({
-	Name = "Auto",
+        Name = "Auto",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
     })
@@ -30,7 +30,7 @@ if game.PlaceId == 9031522337 then
     })
 
     MenusTab:AddDropdown({
-	Name = "Dropdown",
+	Name = "Selection",
 	Default = "None",
 	Options = {"Shop", "Quest"},
 	Callback = function(Value)
