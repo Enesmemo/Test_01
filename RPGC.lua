@@ -1,6 +1,8 @@
 getgenv().A_C = false;  
 
-local Player = game:GetService("Players").LocalPlayer
+game.Players.PlayerAdded:Connect(function(thisPlayer)
+    local playerName = thisPlayer.Name
+end)
 
 local library = loadstring(game:HttpGet(('https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wall%20v3')))()
 
@@ -32,7 +34,7 @@ function A_C()
     spawn(function()
         while (getgenv().A_C == true)
         do
-            workspace.PlayersFolder.Player.Name.WeaponEvent:FireServer("swing")
+            workspace.PlayersFolder.playerName.WeaponEvent:FireServer("swing")
             wait()
         end
     end)
