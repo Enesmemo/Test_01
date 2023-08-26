@@ -1,3 +1,5 @@
+if game.PlaceId == 9031522337 then
+
 getgenv().A_C = false;
 
 local library = loadstring(game:HttpGet(('https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wall%20v3')))()
@@ -30,9 +32,10 @@ function A_C()
     spawn(function()
         while (getgenv().A_C == true)
         do
-            Name = game:GetService("Players").LocalPlayer
-            workspace.PlayersFolder.Name.WeaponEvent:FireServer("swing")
+            local args = {[1] = "swing"}
+            game:GetService("Players").LocalPlayer.Character.WeaponEvent:FireServer(unpack(args))
             wait()
         end
     end)
+end
 end
