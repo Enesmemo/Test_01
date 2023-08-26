@@ -8,34 +8,34 @@ if game.PlaceId == 9031522337 then
     getgenv().A_C = false;
 
     local ATab = Window:MakeTab({
-	    Name = "Auto",
-	    Icon = "rbxassetid://4483345998",
-	    PremiumOnly = false
+	Name = "Auto",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
     })
 
     local MTab = Window:MakeTab({
-	    Name = "Menus",
-	    Icon = "rbxassetid://4483345998",
-	    PremiumOnly = false
+	Name = "Menus",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
     })
 
 
     ATab:AddToggle({
-	    Name = "Click",
-	    Default = false,
-	    Callback = function(Value)
-		    getgenv().A_C = Value
+	Name = "Click",
+	Default = false,
+	Callback = function(Value)
+	    getgenv().A_C = Value
             A_C()
-	    end    
+	end    
     })
 
     MTab:AddDropdown({
-	    Name = "Dropdown",
-	    Default = "None",
-	    Options = {"Shop", "Quest"},
-	    Callback = function(Value)
-	        MValue = Value
-	    end    
+	Name = "Dropdown",
+	Default = "None",
+	Options = {"Shop", "Quest"},
+	Callback = function(Value)
+	    MValue = Value
+	end    
     })
 
     MTab:AddButton({
