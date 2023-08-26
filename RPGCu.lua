@@ -34,7 +34,7 @@ function A_C()
     spawn(function()
         while (getgenv().A_C == true)
         do
-            game:GetService("Players").LocalPlayer.Character.WeaponEvent:FireServer(unpack([1] = "swing"))
+            print("Ben Pattisim")
             wait()
         end
     end)
