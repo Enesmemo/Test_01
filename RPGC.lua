@@ -1,5 +1,9 @@
 if game.PlaceId == 9031522337 then
 
+    local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+
+    local Window = OrionLib:MakeWindow({Name = "DraWatX RPGC", HidePremium = false, SaveConfig = true, ConfigFolder = "Win", IntroEnabled = false})
+
     MValue = ""
     getgenv().A_C = false;
 
@@ -35,15 +39,15 @@ if game.PlaceId == 9031522337 then
     })
 
     MTab:AddButton({
-	    Name = "Open",
-	    Callback = function()
+	Name = "Open",
+	Callback = function()
             if string.find(MValue, "Quest") then
                 game:GetService("ReplicatedStorage").Remotes.ClientEVENT:Fire("hideMainExcept", "ZoneQuest")
                 game:GetService("ReplicatedStorage").Remotes.ClientEVENT:Fire("updateQuests","Home")
                 game:GetService("Players").LocalPlayer.PlayerScripts.LocalScript.Modules.QuestEvent:Fire("update", "Home")
                 game:GetService("ReplicatedStorage").Remotes.actionFunctions:InvokeServer("getZoneQuests", "Home")
             end
-  	    end    
+  	end    
     })
 
     function A_C()
