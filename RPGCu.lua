@@ -20,7 +20,7 @@ a:Toggle("Click",function(bool)
     end
 end)
 
-b:Dropdown("None",{"Quest","Shop"},true,function(value)
+b:Dropdown("None",{"----------","Quest","Shop"},true,function(value)
     MValue = value
 end)
 
