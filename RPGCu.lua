@@ -2,7 +2,7 @@ if game.PlaceId == 9031522337 then
 
     local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 
-    local Window = OrionLib:MakeWindow({Name = "DraWatX RPGC", HidePremium = false, SaveConfig = true, ConfigFolder = "Win", IntroEnabled = false})
+    local Window = OrionLib:MakeWindow({Name = "DraWatX RPGC", HidePremium = false, IntroEnabled = false, SaveConfig = true, ConfigFolder = "Win"})
 
     MValue = ""
     getgenv().A_C = false;
