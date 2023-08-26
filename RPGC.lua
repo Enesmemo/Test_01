@@ -1,3 +1,5 @@
+if game.PlaceId == 9031522337 then
+
 MValue = ""
 getgenv().A_C = false;
 
@@ -18,7 +20,7 @@ a:Toggle("Click",function(bool)
     end
 end)
 
-b:Dropdown("None",{"Quest"},true,function(value)
+b:Dropdown("None",{"None", "Quest"},true,function(value)
     MValue = value
 end)
 
@@ -37,8 +39,10 @@ function A_C()
     spawn(function()
         while (getgenv().A_C == true)
         do
-            print("Ben Pattisim")
+            local args = {[1] = "swing"}
+            game:GetService("Players").LocalPlayer.Character.WeaponEvent:FireServer(unpack(args))
             wait()
         end
     end)
+end
 end
