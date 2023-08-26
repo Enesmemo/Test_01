@@ -1,6 +1,7 @@
 getgenv().A_C = false;
 
-game.Players.PlayerAdded:Connect(function(Player) print(Player.Name) end)
+Name = game:GetService(“Players”).LocalPlayer.Name.
+print(Name)
 
 local library = loadstring(game:HttpGet(('https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wall%20v3')))()
 
