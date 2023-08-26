@@ -19,10 +19,12 @@ a:Toggle("Click",function(bool)
     end
 end)
 
-b:Dropdown("None",{"Quest","B","C"},true,function(mvalue)
+b:Dropdown("None",{"Quest","B","C"},true,function(valuem)
+    mvalue = valuem
+end)
 
 b:Button("Open",function()
-    if mvalue == "Quest" then
+    if  string.find(mvalue, "Quest") then
         game:GetService("ReplicatedStorage").Remotes.ClientEVENT:Fire("hideMainExcept", "ZoneQuest")
         game:GetService("ReplicatedStorage").Remotes.ClientEVENT:Fire("updateQuests","Home")
         game:GetService("Players").LocalPlayer.PlayerScripts.LocalScript.Modules.QuestEvent:Fire("update", "Home")
