@@ -23,18 +23,18 @@ if game.PlaceId == 9031522337 then
     AutoTab:AddToggle({
 	Name = "Click",
 	Default = false,
-	Callback = function(Value)
-	    getgenv().A_C == Value
+	Callback = function(BValue)
+	    getgenv().A_C = Value
             A_C()
 	end    
     })
 
     MenusTab:AddDropdown({
 	Name = "Selection",
-	Default = "None",
+	Default = "Shop",
 	Options = {"Shop", "Quest"},
-	Callback = function(Value)
-	    MValue == Value
+	Callback = function(SValue)
+	    MValue = SValue
 	end    
     })
 
