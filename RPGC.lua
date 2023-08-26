@@ -4,9 +4,11 @@ local library = loadstring(game:HttpGet(('https://raw.githubusercontent.com/bloo
 
 local w = library:CreateWindow("DraWatX RPGC")
 
-local b = w:CreateFolder("Quest")
+local a = w:CreateFolder("Auto")
+  
+local b = w:CreateFolder("Menu")
 
-b:Button("Menu Open",function()
+b:Button("Quest",function()
 game:GetService("ReplicatedStorage").Remotes.ClientEVENT:Fire("hideMainExcept", "ZoneQuest")
 game:GetService("ReplicatedStorage").Remotes.ClientEVENT:Fire("updateQuests","Home")
 game:GetService("Players").LocalPlayer.PlayerScripts.LocalScript.Modules.QuestEvent:Fire("update", "Home")
