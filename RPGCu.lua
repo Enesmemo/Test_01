@@ -7,20 +7,20 @@ if game.PlaceId == 9031522337 then
     MValue = ""
     getgenv().A_C = false;
 
-    local ATab = Window:MakeTab({
+    local AutoTab = Window:MakeTab({
 	Name = "Auto",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
     })
 
-    local MTab = Window:MakeTab({
+    local MenusTab = Window:MakeTab({
 	Name = "Menus",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
     })
 
 
-    ATab:AddToggle({
+    AutoTab:AddToggle({
 	Name = "Click",
 	Default = false,
 	Callback = function(Value)
@@ -29,7 +29,7 @@ if game.PlaceId == 9031522337 then
 	end    
     })
 
-    MTab:AddDropdown({
+    MenusTab:AddDropdown({
 	Name = "Dropdown",
 	Default = "None",
 	Options = {"Shop", "Quest"},
@@ -38,7 +38,7 @@ if game.PlaceId == 9031522337 then
 	end    
     })
 
-    MTab:AddButton({
+    MenusTab:AddButton({
 	Name = "Open",
 	Callback = function()
             if string.find(MValue, "Quest") then
@@ -47,12 +47,13 @@ if game.PlaceId == 9031522337 then
                 game:GetService("Players").LocalPlayer.PlayerScripts.LocalScript.Modules.QuestEvent:Fire("update", "Home")
                 game:GetService("ReplicatedStorage").Remotes.actionFunctions:InvokeServer("getZoneQuests", "Home")
             end
-  	end    
+        end    
     })
 
     function A_C()
         spawn(function()
-            while (getgenv().A_C == true) do
+            while (getgenv().A_C == true)
+	    do
                 local args = {[1] = "swing"}
                 game:GetService("Players").LocalPlayer.Character.WeaponEvent:FireServer(unpack(args))
                 wait()
