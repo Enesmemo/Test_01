@@ -24,7 +24,7 @@ if game.PlaceId == 9031522337 then
 	Name = "Click",
 	Default = false,
 	Callback = function(Value)
-	    getgenv().A_C = Value
+	    getgenv().A_C == Value
             A_C()
 	end    
     })
@@ -34,7 +34,7 @@ if game.PlaceId == 9031522337 then
 	Default = "None",
 	Options = {"Shop", "Quest"},
 	Callback = function(Value)
-	    MValue = Value
+	    MValue == Value
 	end    
     })
 
