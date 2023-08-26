@@ -20,7 +20,7 @@ a:Toggle("Click",function(bool)
     end
 end)
 
-b:Dropdown("None",{"None", "Quest"},true,function(value)
+b:Dropdown("None",{"Shop","Quest"},true,function(value)
     MValue = value
 end)
 
@@ -33,7 +33,7 @@ b:Button("Open",function()
     end
 end)
 
-c:DestroyGui()
+c:Destroy()
   
 function A_C()
     spawn(function()
