@@ -1,8 +1,6 @@
-if game.PlaceId == 9031522337 then
-
 getgenv().A_C = false;
 
-PlayerName = game:GetService(“Players”).LocalPlayer.Name
+game.Players.PlayerAdded:Connect(function(Player) print(Player.Name) end)
 
 local library = loadstring(game:HttpGet(('https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wall%20v3')))()
 
@@ -38,5 +36,4 @@ function A_C()
             wait()
         end
     end)
-end
 end
