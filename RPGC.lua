@@ -10,6 +10,8 @@ local a = w:CreateFolder("Auto")
   
 local b = w:CreateFolder("Menus")
 
+local f = w:CreateFolder("Settings")
+
 a:Toggle("Click",function(bool)
     getgenv().A_C = bool
     if bool then
@@ -24,11 +26,13 @@ b:Button("Quest",function()
     game:GetService("ReplicatedStorage").Remotes.actionFunctions:InvokeServer("getZoneQuests", "Home")
 end)
 
+f:DestroyGui()
+  
 function A_C()
     spawn(function()
         while (getgenv().A_C == true)
         do
-            game:GetService("Players").LocalPlayer.Character.WeaponEvent:FireServer(unpack("swing))
+            game:GetService("Players").LocalPlayer.Character.WeaponEvent:FireServer(unpack("swing"))
             wait()
         end
     end)
