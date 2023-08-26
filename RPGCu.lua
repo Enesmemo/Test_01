@@ -1,5 +1,7 @@
 getgenv().A_C = false;  
 
+local Player = game:GetService("Players").LocalPlayer
+
 local library = loadstring(game:HttpGet(('https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wall%20v3')))()
 
 local w = library:CreateWindow("DraWatX RPGC")
@@ -30,7 +32,7 @@ function A_C()
     spawn(function()
         while (getgenv().A_C == true)
         do
-            game:GetService("Players").LocalPlayer.Character.WeaponEvent:FireServer(unpack("swing"))
+            workspace.PlayersFolder.Player.Name.WeaponEvent:FireServer("swing")
             wait()
         end
     end)
