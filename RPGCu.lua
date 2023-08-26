@@ -8,7 +8,7 @@ local a = w:CreateFolder("Auto")
   
 local b = w:CreateFolder("Menus")
 
-local f = w:CreateFolder("Settings")
+local c = w:CreateFolder("Settings")
 
 a:Toggle("Click",function(bool)
     getgenv().A_C = bool
@@ -17,7 +17,7 @@ a:Toggle("Click",function(bool)
     end
 end)
 
-b:Dropdown("None",{"Quest","B","C"},true,function(value)
+b:Dropdown("",{"Quest"},true,function(value)
       print(value)
 end)
 
@@ -28,7 +28,7 @@ b:Button("Open",function()
     game:GetService("ReplicatedStorage").Remotes.actionFunctions:InvokeServer("getZoneQuests", "Home")
 end)
 
-f:DestroyGui()
+c:DestroyGui()
   
 function A_C()
     spawn(function()
