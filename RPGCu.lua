@@ -1,5 +1,3 @@
-if game.PlaceId == 9031522337 then
-
 getgenv().A_C = false;
 
 local library = loadstring(game:HttpGet(('https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wall%20v3')))()
@@ -19,8 +17,8 @@ a:Toggle("Click",function(bool)
     end
 end)
 
-b:Dropdown("None",{"Quest","B","C"},true,function(MValue)
-      print(MValue)
+b:Dropdown("None",{"Quest","B","C"},true,function(value)
+      print(value)
 end)
 
 b:Button("Open",function()
@@ -40,5 +38,4 @@ function A_C()
             wait()
         end
     end)
-end
 end
