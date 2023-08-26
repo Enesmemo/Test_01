@@ -30,7 +30,7 @@ b:Button("Open",function()
     end
 end)
 
-f:Destroy Menu()
+f:DestroyGui()
   
 function A_C()
     spawn(function()
