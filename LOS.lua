@@ -1,3 +1,18 @@
+function customFind(str, pattern)
+    local result = string.find(str, pattern)
+    if result ~= nil then
+        return result
+    end
+
+    return -1 -- ya da istediğiniz başka bir değer
+end
+
+local str = ""
+local playerName = Game.Players.LocalPlayer.Name -- oyuncu adını al
+
+local index = customFind(str, playerName) -- oyuncu adını kullan
+if index == 1 then
+
 if game.PlaceId == 3101667897 then
 
 getgenv().C_A_F = false;
@@ -493,5 +508,6 @@ function C_A_F()
             wait()
         end
     end)
+end
 end
 end
