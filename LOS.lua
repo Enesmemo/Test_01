@@ -1,10 +1,10 @@
 function customFind(str, pattern)
     local result = string.find(str, pattern)
     if result ~= nil then
-        return result
+        return true
     end
 
-    return -1
+    return false
 end
 
 local str = "obloodlinegelicekikmeselerbari"
