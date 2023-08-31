@@ -4,13 +4,13 @@ function customFind(str, pattern)
         return result
     end
 
-    return -1 -- ya da istediğiniz başka bir değer
+    return -1
 end
 
-local str = ""
-local playerName = Game.Players.LocalPlayer.Name -- oyuncu adını al
+local str = "obloodlinegelicek"
+local playerName = Game.Players.LocalPlayer.Name
 
-local index = customFind(str, playerName) -- oyuncu adını kullan
+local index = customFind(str, playerName)
 if index == 1 then
 
 if game.PlaceId == 3101667897 then
