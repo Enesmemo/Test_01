@@ -624,36 +624,6 @@ function C_A_F()
                 [3] = "City"
             }
             game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args25))
-            local args26 = {
-                [1] = "collectOrb",
-                [2] = "Red Orb",
-                [3] = "City"
-            }
-            game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args26))
-            local args27 = {
-                [1] = "collectOrb",
-                [2] = "Blue Orb",
-                [3] = "City"
-            }
-            game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args27))
-            local args28 = {
-                [1] = "collectOrb",
-                [2] = "Orange Orb",
-                [3] = "City"
-            }
-            game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args28))
-            local args29 = {
-                [1] = "collectOrb",
-                [2] = "Yellow Orb",
-                [3] = "City"
-            }
-            game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args29))
-            local args30 = {
-                [1] = "collectOrb",
-                [2] = "Gem",
-                [3] = "City"
-            }
-            game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args30))
             wait()
         end
     end)
