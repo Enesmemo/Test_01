@@ -286,8 +286,7 @@ function A_R()
 end
 
 function T_M_C()
-        if (getgenv().T_M_C == true)
-        do
+        if (getgenv().T_M_C == true) then
             local player = game.Players.LocalPlayer
             local position = Vector3.new(-11052.318359375, 216.81578063964844, 4913.3876953125) 
             player.Character.HumanoidRootPart.CFrame = CFrame.new(position)
