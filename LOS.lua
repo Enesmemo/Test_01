@@ -26,6 +26,7 @@ getgenv().S_A_C = false;
 getgenv().LH_A_C = false;
 getgenv().C_A_C = false;
 getgenv().SC_A_C = false;
+getgenv().T_M_C = false;
 getgenv().A_R = false;
 getgenv().C_A = false;
 
@@ -138,6 +139,13 @@ c:Toggle("Legends Highway",function(bool)
     getgenv().LH_A_C = bool
     if bool then
         LH_A_C()
+    end
+end)
+
+d:Toggle("Magma City",function(bool)
+    getgenv().T_M_C = bool
+    if bool then
+        T_M_C()
     end
 end)
 
@@ -273,6 +281,16 @@ function A_R()
             }
             game:GetService("ReplicatedStorage").rEvents.rebirthEvent:FireServer(unpack(args))
             wait()
+        end
+    end)
+end
+
+function T_M_C()
+        if (getgenv().T_M_C == true)
+        do
+            local player = game.Players.LocalPlayer
+            local position = Vector3.new(-11052.318359375, 216.81578063964844, 4913.3876953125) 
+            player.Character.HumanoidRootPart.CFrame = CFrame.new(position)
         end
     end)
 end
