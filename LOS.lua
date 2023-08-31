@@ -510,4 +510,6 @@ function C_A_F()
     end)
 end
 end
+else
+    print("https://discord.gg/HGqAuUUU3Z")
 end
