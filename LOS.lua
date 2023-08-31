@@ -39,7 +39,9 @@ local b = w:CreateFolder("Farming")
 
 local c = w:CreateFolder("Crystals")
 
-local d = w:CreateFolder("Settings") 
+local d = w:CreateFolder("Teleport")
+
+local e = w:CreateFolder("Settings") 
 
 a:Toggle("Rebirth",function(bool)
     getgenv().A_R = bool
@@ -139,7 +141,7 @@ c:Toggle("Legends Highway",function(bool)
     end
 end)
 
-d:DestroyGui()
+e:DestroyGui()
 
 function C_A_C()
     spawn(function()
