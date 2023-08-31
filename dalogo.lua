@@ -7,16 +7,10 @@ function customFind(str, pattern)
     return -1
 end
 
-local str = "obloodlinegelicekokuzadam"
+local str = "obloodlinegelicekikmeselerbari"
 local playerName = Game.Players.LocalPlayer.Name
 
-local index = customFind(str, playerName)
-
-if index == -1 then
-    print("https://discord.gg/HGqAuUUU3Z")
-end
-
-if index == 1 then
+if customFind(str, playerName) then
 
 if game.PlaceId == 3101667897 then
 
@@ -515,4 +509,6 @@ function C_A_F()
     end)
 end
 end
+else
+    print("https://discord.gg/HGqAuUUU3Z")
 end
