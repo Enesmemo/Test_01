@@ -27,6 +27,7 @@ getgenv().LH_A_C = false;
 getgenv().C_A_C = false;
 getgenv().SC_A_C = false;
 getgenv().T_M_C = false;
+getgenv().T_S_C = false;
 getgenv().A_R = false;
 getgenv().C_A = false;
 
@@ -139,6 +140,13 @@ c:Toggle("Legends Highway",function(bool)
     getgenv().LH_A_C = bool
     if bool then
         LH_A_C()
+    end
+end)
+
+d:Toggle("Snow City",function(bool)
+    getgenv().T_S_C = bool
+    if bool then
+        T_S_C()
     end
 end)
 
@@ -289,6 +297,14 @@ function T_M_C()
     if (getgenv().T_M_C == true) then
         local player = game.Players.LocalPlayer
         local position = Vector3.new(-11052.318359375, 216.81578063964844, 4913.3876953125) 
+        player.Character.HumanoidRootPart.CFrame = CFrame.new(position)
+    end
+end
+
+function T_S_C()
+    if (getgenv().T_S_C == true) then
+        local player = game.Players.LocalPlayer
+        local position = Vector3.new(-11040.890625, 58.855804443359375, 4059.7919921875) 
         player.Character.HumanoidRootPart.CFrame = CFrame.new(position)
     end
 end
