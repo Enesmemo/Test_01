@@ -332,12 +332,12 @@ function A_W_R()
                 if (Time < 3) then
                     Time = Time + 1
                 else
+                    print("W")
                     local args = {
                         [1] = "joinRace"
                     }
                     game:GetService("ReplicatedStorage").rEvents.raceEvent:FireServer(unpack(args))
                     Time = 0
-                    print("oluverdi"
                 end
 
                 local player = game.Players.LocalPlayer
