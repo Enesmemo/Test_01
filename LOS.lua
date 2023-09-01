@@ -28,6 +28,7 @@ getgenv().C_A_C = false;
 getgenv().SC_A_C = false;
 getgenv().T_M_C = false;
 getgenv().T_S_C = false;
+getgenv().T_LH = false;
 getgenv().A_R = false;
 getgenv().C_A = false;
 
@@ -154,6 +155,13 @@ d:Toggle("Magma City",function(bool)
     getgenv().T_M_C = bool
     if bool then
         T_M_C()
+    end
+end)
+
+d:Toggle("Legends Highway",function(bool)
+    getgenv().T_LH = bool
+    if bool then
+        T_LH()
     end
 end)
 
@@ -305,6 +313,14 @@ function T_S_C()
     if (getgenv().T_S_C == true) then
         local player = game.Players.LocalPlayer
         local position = Vector3.new(-11040.890625, 58.855804443359375, 4059.7919921875) 
+        player.Character.HumanoidRootPart.CFrame = CFrame.new(position)
+    end
+end
+
+function T_LH()
+    if (getgenv().T_LH == true) then
+        local player = game.Players.LocalPlayer
+        local position = Vector3.new(-13096.47265625, 216.8157958984375, 5922.3037109375) 
         player.Character.HumanoidRootPart.CFrame = CFrame.new(position)
     end
 end
