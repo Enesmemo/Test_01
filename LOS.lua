@@ -329,9 +329,8 @@ function A_W_R()
             while (getgenv().A_W_R == true)
             do
                 local Time = 0
-                if (Time < 1) then
+                if (Time < 1000) then
                     Time = Time + 1
-                    wait(9)
                 else
                     local args = {
                         [1] = "joinRace"
