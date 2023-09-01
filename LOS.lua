@@ -27,6 +27,7 @@ getgenv().LH_A_C = false;
 getgenv().C_A_C = false;
 getgenv().SC_A_C = false;
 getgenv().T_S = false;
+getgenv().T_S_D = false;
 getgenv().T_M_C = false;
 getgenv().T_S_C = false;
 getgenv().T_LH = false;
@@ -163,6 +164,13 @@ d:Toggle("Magma City",function(bool)
     getgenv().T_M_C = bool
     if bool then
         T_M_C()
+    end
+end)
+
+d:Toggle("Speed Desert",function(bool)
+    getgenv().T_S_D = bool
+    if bool then
+        T_S_D()
     end
 end)
 
@@ -313,6 +321,14 @@ function T_M_C()
     if (getgenv().T_M_C == true) then
         local player = game.Players.LocalPlayer
         local position = Vector3.new(-11052.318359375, 216.81578063964844, 4913.3876953125) 
+        player.Character.HumanoidRootPart.CFrame = CFrame.new(position)
+    end
+end
+
+function T_S_D()
+    if (getgenv().T_S_D == true) then
+        local player = game.Players.LocalPlayer
+        local position = Vector3.new(2515.419921875, 14.617029190063477, 4355.84814453125) 
         player.Character.HumanoidRootPart.CFrame = CFrame.new(position)
     end
 end
