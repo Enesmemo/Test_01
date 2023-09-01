@@ -12,7 +12,7 @@ local playerName = Game.Players.LocalPlayer.Name
 
 if customFind(str, playerName) then
 
-local Time = 75
+local Time = 83
     
 getgenv().C_A_F = false;
 getgenv().MC_A_F = false;
@@ -337,7 +337,7 @@ function A_W_R()
                         [1] = "joinRace"
                     }
                     game:GetService("ReplicatedStorage").rEvents.raceEvent:FireServer(unpack(args))
-                    Time = 75
+                    Time = 83
                 end
 
                 local player = game.Players.LocalPlayer
