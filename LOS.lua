@@ -328,11 +328,6 @@ function A_W_R()
         spawn(function()
             while (getgenv().A_W_R == true)
             do
-                local args = {
-                    [1] = "joinRace"
-                }
-                game:GetService("ReplicatedStorage").rEvents.raceEvent:FireServer(unpack(args))
-
                 local player = game.Players.LocalPlayer
                         
                 local position = Vector3.new(7.80698823928833, 0.3905143737792969, -8585.1142578125)
@@ -833,36 +828,6 @@ function SC_A_F()
                 [3] = "Snow City"
             }
             game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args20))
-            local args21 = {
-                [1] = "collectOrb",
-                [2] = "Red Orb",
-                [3] = "Snow City"
-            }
-            game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args21))
-            local args22 = {
-                [1] = "collectOrb",
-                [2] = "Blue Orb",
-                [3] = "Snow City"
-            }
-            game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args22))
-            local args23 = {
-                [1] = "collectOrb",
-                [2] = "Orange Orb",
-                [3] = "Snow City"
-            }
-            game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args23))
-            local args24 = {
-                [1] = "collectOrb",
-                [2] = "Yellow Orb",
-                [3] = "Snow City"
-            }
-            game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args24))
-            local args25 = {
-                [1] = "collectOrb",
-                [2] = "Gem",
-                [3] = "Snow City"
-            }
-            game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args25))
             wait()
         end
     end)
