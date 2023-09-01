@@ -12,13 +12,11 @@ local playerName = Game.Players.LocalPlayer.Name
 
 if customFind(str, playerName) then
 
-if game.PlaceId == 3101667897 then
-
 getgenv().C_A_F = false;
 getgenv().MC_A_F = false;
 getgenv().D_A_F = false;
 getgenv().S_A_F = false;
-getgenv().LH_A_F = false;
+getgenv().L_H_A_F = false;
 getgenv().SC_A_F = false;
 getgenv().MC_A_C = false;
 getgenv().D_A_C = false;
@@ -98,9 +96,9 @@ b:Toggle("Speed Desert",function(bool)
 end)
 
 b:Toggle("Legends Highway",function(bool)
-    getgenv().LH_A_F = bool
+    getgenv().L_H_A_F = bool
     if bool then
-        LH_A_F()
+        L_H_A_F()
     end
 end)
 
@@ -391,6 +389,126 @@ function D_A_F()
                 [3] = "Desert"
             }
             game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args5))
+            local args6 = {
+                [1] = "collectOrb",
+                [2] = "Red Orb",
+                [3] = "Desert"
+            }
+            game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args6))
+            local args7 = {
+                [1] = "collectOrb",
+                [2] = "Blue Orb",
+                [3] = "Desert"
+            }
+            game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args7))
+            local args8 = {
+                [1] = "collectOrb",
+                [2] = "Orange Orb",
+                [3] = "Desert"
+            }
+            game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args8))
+            local args9 = {
+                [1] = "collectOrb",
+                [2] = "Yellow Orb",
+                [3] = "Desert"
+            }
+            game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args9))
+            local args10 = {
+                [1] = "collectOrb",
+                [2] = "Gem",
+                [3] = "Desert"
+            }
+            game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args10))
+            local args11 = {
+                [1] = "collectOrb",
+                [2] = "Red Orb",
+                [3] = "Desert"
+            }
+            game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args11))
+            local args12 = {
+                [1] = "collectOrb",
+                [2] = "Blue Orb",
+                [3] = "Desert"
+            }
+            game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args12))
+            local args13 = {
+                [1] = "collectOrb",
+                [2] = "Orange Orb",
+                [3] = "Desert"
+            }
+            game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args13))
+            local args14 = {
+                [1] = "collectOrb",
+                [2] = "Yellow Orb",
+                [3] = "Desert"
+            }
+            game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args14))
+            local args15 = {
+                [1] = "collectOrb",
+                [2] = "Gem",
+                [3] = "Desert"
+            }
+            game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args15))
+            local args16 = {
+                [1] = "collectOrb",
+                [2] = "Red Orb",
+                [3] = "Desert"
+            }
+            game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args16))
+            local args17 = {
+                [1] = "collectOrb",
+                [2] = "Blue Orb",
+                [3] = "Desert"
+            }
+            game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args17))
+            local args18 = {
+                [1] = "collectOrb",
+                [2] = "Orange Orb",
+                [3] = "Desert"
+            }
+            game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args18))
+            local args19 = {
+                [1] = "collectOrb",
+                [2] = "Yellow Orb",
+                [3] = "Desert"
+            }
+            game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args19))
+            local args20 = {
+                [1] = "collectOrb",
+                [2] = "Gem",
+                [3] = "Desert"
+            }
+            game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args20))
+            local args21 = {
+                [1] = "collectOrb",
+                [2] = "Red Orb",
+                [3] = "Desert"
+            }
+            game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args21))
+            local args22 = {
+                [1] = "collectOrb",
+                [2] = "Blue Orb",
+                [3] = "Desert"
+            }
+            game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args22))
+            local args23 = {
+                [1] = "collectOrb",
+                [2] = "Orange Orb",
+                [3] = "Desert"
+            }
+            game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args23))
+            local args24 = {
+                [1] = "collectOrb",
+                [2] = "Yellow Orb",
+                [3] = "Desert"
+            }
+            game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args24))
+            local args25 = {
+                [1] = "collectOrb",
+                [2] = "Gem",
+                [3] = "Desert"
+            }
+            game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args25))
             wait()
         end
     end)
@@ -873,9 +991,9 @@ function MC_A_F()
     end)
 end
 
-function LH_A_F()
+function L_H_A_F()
     spawn(function()
-        while (getgenv().LH_A_F == true)
+        while (getgenv().L_H_A_F == true)
         do
             local args = {
                 [1] = "collectOrb",
@@ -1189,7 +1307,6 @@ function C_A_F()
             wait()
         end
     end)
-end
 end
 else
     print("https://discord.gg/HGqAuUUU3Z")
