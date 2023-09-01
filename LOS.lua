@@ -336,6 +336,10 @@ function A_W_R()
                 local player = game.Players.LocalPlayer
                 local position = Vector3.new(7.80698823928833, 0.3905143737792969, -8585.1142578125) 
                 player.Character.HumanoidRootPart.CFrame = CFrame.new(position)
+                local position2 = Vector3.new(1636.7662353515625, 0.39051416516304016, -5887.42041015625)
+                player.Character.HumanoidRootPart.CFrame = CFrame.new(position2)
+                local position3 = Vector3.new(969.2024536132812, 0.39051443338394165, -10919.7548828125) 
+                player.Character.HumanoidRootPart.CFrame = CFrame.new(position3)
                 wait()
             end
         end)
