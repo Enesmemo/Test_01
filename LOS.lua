@@ -12,7 +12,7 @@ local playerName = Game.Players.LocalPlayer.Name
 
 if customFind(str, playerName) then
 
-local Time = 80
+local Time = 90
     
 getgenv().C_A_F = false;
 getgenv().MC_A_F = false;
@@ -330,7 +330,15 @@ function A_W_R()
         spawn(function()
             while (getgenv().A_W_R == true)
             do
-                A_R_E()
+                if (Time > 0) then
+                    Time = Time - 1
+                else
+                    local args = {
+                        [1] = "joinRace"
+                    }
+                    game:GetService("ReplicatedStorage").rEvents.raceEvent:FireServer(unpack(args))
+                    Time = 90
+                end
 
                 local player = game.Players.LocalPlayer
                         
@@ -347,19 +355,6 @@ function A_W_R()
                 wait()
             end
         end)
-    end
-end
-
-function A_R_E()
-    if (Time > 0) then
-        Time = Time - 1
-    else
-        print("W")
-        local args = {
-            [1] = "joinRace"
-        }
-        game:GetService("ReplicatedStorage").rEvents.raceEvent:FireServer(unpack(args))
-        Time = 80
     end
 end
 
