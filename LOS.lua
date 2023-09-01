@@ -11,8 +11,6 @@ local str = "obloodlinegelicek"
 local playerName = Game.Players.LocalPlayer.Name
 
 if customFind(str, playerName) then
-
-local Time = 83
     
 getgenv().C_A_F = false;
 getgenv().MC_A_F = false;
@@ -330,15 +328,10 @@ function A_W_R()
         spawn(function()
             while (getgenv().A_W_R == true)
             do
-                if (Time > 0) then
-                    Time = Time - 1
-                else
-                    local args = {
-                        [1] = "joinRace"
-                    }
-                    game:GetService("ReplicatedStorage").rEvents.raceEvent:FireServer(unpack(args))
-                    Time = 83
-                end
+                local args = {
+                    [1] = "joinRace"
+                }
+                game:GetService("ReplicatedStorage").rEvents.raceEvent:FireServer(unpack(args))
 
                 local player = game.Players.LocalPlayer
                         
