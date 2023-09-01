@@ -176,6 +176,7 @@ d:Toggle("Legends Highway",function(bool)
     getgenv().T_LH = bool
     if bool then
         T_LH()
+        bool = false
     end
 end)
 
@@ -352,7 +353,6 @@ function T_LH()
         local player = game.Players.LocalPlayer
         local position = Vector3.new(-13096.47265625, 216.8157958984375, 5922.3037109375) 
         player.Character.HumanoidRootPart.CFrame = CFrame.new(position)
-        getgenv().T_LH = false
     end
 end
 
