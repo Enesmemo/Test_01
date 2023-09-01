@@ -316,63 +316,73 @@ function A_R()
 end
 
 function T_M_C()
-    spawn(function()
-        while (getgenv().T_M_C == true)
-        do
-            local player = game.Players.LocalPlayer
-            local position = Vector3.new(-11052.318359375, 216.81578063964844, 4913.3876953125) 
-            player.Character.HumanoidRootPart.CFrame = CFrame.new(position)
-            wait()
-        end
-    end)
+    if game.PlaceId == 3101667897 then
+        spawn(function()
+            while (getgenv().T_M_C == true)
+            do
+                local player = game.Players.LocalPlayer
+                local position = Vector3.new(-11052.318359375, 216.81578063964844, 4913.3876953125) 
+                player.Character.HumanoidRootPart.CFrame = CFrame.new(position)
+                wait()
+            end
+        end)
+    end
 end
 
 function T_S_D()
-    spawn(function()
-        while (getgenv().T_S_D == true)
-        do
-            local player = game.Players.LocalPlayer
-            local position = Vector3.new(2515.419921875, 14.617029190063477, 4355.84814453125) 
-            player.Character.HumanoidRootPart.CFrame = CFrame.new(position)
-            wait()
-        end
-    end)
+    if game.PlaceId == 3101667897 then
+        spawn(function()
+            while (getgenv().T_S_D == true)
+            do
+                local player = game.Players.LocalPlayer
+                local position = Vector3.new(2515.419921875, 14.617029190063477, 4355.84814453125) 
+                player.Character.HumanoidRootPart.CFrame = CFrame.new(position)
+                wait()
+            end
+        end)
+    end
 end
 
 function T_S()
-    spawn(function()
-        while (getgenv().T_S == true)
-        do
-            local player = game.Players.LocalPlayer
-            local position = Vector3.new(-334.7973327636719, 3.7258222103118896, 584.22900390625) 
-            player.Character.HumanoidRootPart.CFrame = CFrame.new(position)
-            wait()
-        end
-    end)
+    if game.PlaceId == 3101667897 then
+        spawn(function()
+            while (getgenv().T_S == true)
+            do
+                local player = game.Players.LocalPlayer
+                local position = Vector3.new(-334.7973327636719, 3.7258222103118896, 584.22900390625) 
+                player.Character.HumanoidRootPart.CFrame = CFrame.new(position)
+                wait()
+            end
+        end)
+    end
 end
 
 function T_S_C()
-    spawn(function()
-        while (getgenv().T_S_C == true)
-        do
-            local player = game.Players.LocalPlayer
-            local position = Vector3.new(-11040.890625, 58.855804443359375, 4059.7919921875) 
-            player.Character.HumanoidRootPart.CFrame = CFrame.new(position)
-            wait()
-        end
-    end)
+    if game.PlaceId == 3101667897 then
+        spawn(function()
+            while (getgenv().T_S_C == true)
+            do
+                local player = game.Players.LocalPlayer
+                local position = Vector3.new(-11040.890625, 58.855804443359375, 4059.7919921875) 
+                player.Character.HumanoidRootPart.CFrame = CFrame.new(position)
+                wait()
+            end
+        end)
+    end
 end
 
 function T_LH()
-    spawn(function()
-        while (getgenv().T_LH == true)
-        do
-            local player = game.Players.LocalPlayer
-            local position = Vector3.new(-13096.47265625, 216.8157958984375, 5922.3037109375) 
-            player.Character.HumanoidRootPart.CFrame = CFrame.new(position)
-            wait()
-        end
-    end)
+    if game.PlaceId == 3101667897 then
+        spawn(function()
+            while (getgenv().T_LH == true)
+            do
+                local player = game.Players.LocalPlayer
+                local position = Vector3.new(-13096.47265625, 216.8157958984375, 5922.3037109375) 
+                player.Character.HumanoidRootPart.CFrame = CFrame.new(position)
+                wait()
+            end
+        end)
+    end
 end
 
 function D_A_F()
