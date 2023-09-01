@@ -328,11 +328,15 @@ function A_W_R()
         spawn(function()
             while (getgenv().A_W_R == true)
             do
-                local args = {
-                    [1] = "joinRace"
-                }
-                game:GetService("ReplicatedStorage").rEvents.raceEvent:FireServer(unpack(args))
-                        
+                local startTick = tick()
+                if tick() - startTick >= 9 then
+                    startTick = tick()
+                    local args = {
+                        [1] = "joinRace"
+                    }
+                    game:GetService("ReplicatedStorage").rEvents.raceEvent:FireServer(unpack(args))
+                end
+
                 local player = game.Players.LocalPlayer
                         
                 local position = Vector3.new(7.80698823928833, 0.3905143737792969, -8585.1142578125)
