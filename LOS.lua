@@ -329,7 +329,7 @@ function A_W_R()
             while (getgenv().A_W_R == true)
             do
                 local Time = 0
-                if (Time < 1000) then
+                if (Time < 100) then
                     Time = Time + 1
                 else
                     local args = {
