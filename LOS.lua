@@ -329,7 +329,7 @@ function A_W_R()
             while (getgenv().A_W_R == true)
             do
                 local Time = 0
-                if (Time < 10) then
+                if (Time < 50) then
                     Time = Time + 1
                 else
                     local args = {
@@ -337,6 +337,7 @@ function A_W_R()
                     }
                     game:GetService("ReplicatedStorage").rEvents.raceEvent:FireServer(unpack(args))
                     Time = 0
+                    print("oluverdi")
                 end
 
                 local player = game.Players.LocalPlayer
