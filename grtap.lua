@@ -337,7 +337,7 @@ function A_W_R()
                     }
                     game:GetService("ReplicatedStorage").rEvents.raceEvent:FireServer(unpack(args))
                     Time = 0
-                    print("oluverdi")
+                    print("oluverdi"
                 end
 
                 local player = game.Players.LocalPlayer
