@@ -38,6 +38,8 @@ local w = library:CreateWindow("DraWatX LOS")
 
 local a = w:CreateFolder("Auto")
 
+local r = w:CreateFolder("Race")
+
 local b = w:CreateFolder("Farming")
 
 local c = w:CreateFolder("Crystals")
@@ -57,6 +59,14 @@ a:Toggle("Redeem Codes",function(bool)
     getgenv().C_A = bool
     if bool then
         C_A()
+    end
+end)
+
+r:Button("Desert",function()
+    if game.PlaceId == 3101667897 then
+        local player = game.Players.LocalPlayer
+        local position = Vector3.new(7.80698823928833, 0.3905143737792969, -8585.1142578125) 
+        player.Character.HumanoidRootPart.CFrame = CFrame.new(position)
     end
 end)
 
