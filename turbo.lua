@@ -12,7 +12,7 @@ local playerName = Game.Players.LocalPlayer.Name
 
 if customFind(str, playerName) then
 
-local Time = 10
+local Time = 90
     
 getgenv().C_A_F = false;
 getgenv().MC_A_F = false;
