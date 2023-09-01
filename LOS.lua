@@ -16,7 +16,7 @@ getgenv().C_A_F = false;
 getgenv().MC_A_F = false;
 getgenv().D_A_F = false;
 getgenv().S_A_F = false;
-getgenv().L_H_A_F = false;
+getgenv().LH_A_F = false;
 getgenv().SC_A_F = false;
 getgenv().MC_A_C = false;
 getgenv().D_A_C = false;
@@ -96,9 +96,9 @@ b:Toggle("Speed Desert",function(bool)
 end)
 
 b:Toggle("Legends Highway",function(bool)
-    getgenv().L_H_A_F = bool
+    getgenv().LH_A_F = bool
     if bool then
-        L_H_A_F()
+        LH_A_F()
     end
 end)
 
@@ -1021,9 +1021,9 @@ function MC_A_F()
     end)
 end
 
-function L_H_A_F()
+function LH_A_F()
     spawn(function()
-        while (getgenv().L_H_A_F == true)
+        while (getgenv().LH_A_F == true)
         do
             local args = {
                 [1] = "collectOrb",
@@ -1145,36 +1145,6 @@ function L_H_A_F()
                 [3] = "Legends Highway"
             }
             game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args20))
-            local args21 = {
-                [1] = "collectOrb",
-                [2] = "Red Orb",
-                [3] = "Legends Highway"
-            }
-            game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args21))
-            local args22 = {
-                [1] = "collectOrb",
-                [2] = "Blue Orb",
-                [3] = "Legends Highway"
-            }
-            game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args22))
-            local args23 = {
-                [1] = "collectOrb",
-                [2] = "Orange Orb",
-                [3] = "Legends Highway"
-            }
-            game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args23))
-            local args24 = {
-                [1] = "collectOrb",
-                [2] = "Yellow Orb",
-                [3] = "Legends Highway"
-            }
-            game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args24))
-            local args25 = {
-                [1] = "collectOrb",
-                [2] = "Gem",
-                [3] = "Legends Highway"
-            }
-            game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args25))
             wait()
         end
     end)
