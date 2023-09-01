@@ -14,6 +14,7 @@ if customFind(str, playerName) then
 
 getgenv().C_A_F = false;
 getgenv().MC_A_F = false;
+getgenv().A_W_R = false;
 getgenv().D_A_F = false;
 getgenv().S_A_F = false;
 getgenv().LH_A_F = false;
@@ -38,8 +39,6 @@ local w = library:CreateWindow("DraWatX LOS")
 
 local a = w:CreateFolder("Auto")
 
-local r = w:CreateFolder("Race")
-
 local b = w:CreateFolder("Farming")
 
 local c = w:CreateFolder("Crystals")
@@ -55,18 +54,17 @@ a:Toggle("Rebirth",function(bool)
     end
 end)
 
+a:Toggle("Win Races",function(bool)
+    getgenv().A_W_R = bool
+    if bool then
+        A_W_R()
+    end
+end)
+
 a:Toggle("Redeem Codes",function(bool)
     getgenv().C_A = bool
     if bool then
         C_A()
-    end
-end)
-
-r:Button("Desert",function()
-    if game.PlaceId == 3101667897 then
-        local player = game.Players.LocalPlayer
-        local position = Vector3.new(7.80698823928833, 0.3905143737792969, -8585.1142578125) 
-        player.Character.HumanoidRootPart.CFrame = CFrame.new(position)
     end
 end)
 
@@ -323,6 +321,25 @@ function A_R()
             wait()
         end
     end)
+end
+
+function A_W_R()
+    if game.PlaceId == 3101667897 then
+        spawn(function()
+            while (getgenv().A_W_R == true)
+            do
+                local args = {
+                    [1] = "joinRace"
+                }
+                game:GetService("ReplicatedStorage").rEvents.raceEvent:FireServer(unpack(args))
+    
+                local player = game.Players.LocalPlayer
+                local position = Vector3.new(7.80698823928833, 0.3905143737792969, -8585.1142578125) 
+                player.Character.HumanoidRootPart.CFrame = CFrame.new(position)
+                wait()
+            end
+        end)
+    end
 end
 
 function T_M_C()
