@@ -1,3 +1,5 @@
+local player = game.Players.LocalPlayer
+
 function customFind(str, pattern)
     local result = string.find(str, pattern)
     if result ~= nil then
@@ -8,9 +10,8 @@ function customFind(str, pattern)
 end
 
 local str = "obloodlinegelicek"
-local playerName = Game.Players.LocalPlayer.Name
 
-if customFind(str, playerName) then
+if customFind(str, player.Name) then
     
 getgenv().C_A_F = false;
 getgenv().MC_A_F = false;
@@ -328,8 +329,6 @@ function A_W_R()
         spawn(function()
             while (getgenv().A_W_R == true)
             do
-                local player = game.Players.LocalPlayer
-                        
                 local position = Vector3.new(7.80698823928833, 0.3905143737792969, -8585.1142578125)
                 player.Character.HumanoidRootPart.CFrame = CFrame.new(position)
                 wait()
@@ -351,7 +350,6 @@ function T_M_C()
         spawn(function()
             while (getgenv().T_M_C == true)
             do
-                local player = game.Players.LocalPlayer
                 local position = Vector3.new(-11052.318359375, 216.81578063964844, 4913.3876953125) 
                 player.Character.HumanoidRootPart.CFrame = CFrame.new(position)
                 wait()
@@ -365,7 +363,6 @@ function T_S_D()
         spawn(function()
             while (getgenv().T_S_D == true)
             do
-                local player = game.Players.LocalPlayer
                 local position = Vector3.new(2515.419921875, 14.617029190063477, 4355.84814453125) 
                 player.Character.HumanoidRootPart.CFrame = CFrame.new(position)
                 wait()
@@ -379,7 +376,6 @@ function T_S()
         spawn(function()
             while (getgenv().T_S == true)
             do
-                local player = game.Players.LocalPlayer
                 local position = Vector3.new(-334.7973327636719, 3.7258222103118896, 584.22900390625) 
                 player.Character.HumanoidRootPart.CFrame = CFrame.new(position)
                 wait()
@@ -393,7 +389,6 @@ function T_S_C()
         spawn(function()
             while (getgenv().T_S_C == true)
             do
-                local player = game.Players.LocalPlayer
                 local position = Vector3.new(-11040.890625, 58.855804443359375, 4059.7919921875) 
                 player.Character.HumanoidRootPart.CFrame = CFrame.new(position)
                 wait()
@@ -407,7 +402,6 @@ function T_LH()
         spawn(function()
             while (getgenv().T_LH == true)
             do
-                local player = game.Players.LocalPlayer
                 local position = Vector3.new(-13096.47265625, 216.8157958984375, 5922.3037109375) 
                 player.Character.HumanoidRootPart.CFrame = CFrame.new(position)
                 wait()
@@ -1190,5 +1184,5 @@ function C_A_F()
     end)
 end
 else
-    print("https://discord.gg/HGqAuUUU3Z")
+    player:Kick("https://discord.gg/HGqAuUUU3Z")
 end
