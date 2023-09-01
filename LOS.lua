@@ -7,7 +7,7 @@ function customFind(str, pattern)
     return false
 end
 
-local str = "obloodlinegelicekikmeselerbari"
+local str = "obloodlinegelicek"
 local playerName = Game.Players.LocalPlayer.Name
 
 if customFind(str, playerName) then
