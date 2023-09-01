@@ -328,13 +328,16 @@ function A_W_R()
         spawn(function()
             while (getgenv().A_W_R == true)
             do
-                local startTick = tick()
-                if tick() - startTick >= 9 then
-                    startTick = tick()
+                local Time = 0
+                if (Time < 1) then
+                    Time = Time + 1
+                    wait(9)
+                else
                     local args = {
                         [1] = "joinRace"
                     }
                     game:GetService("ReplicatedStorage").rEvents.raceEvent:FireServer(unpack(args))
+                    Time = 0
                 end
 
                 local player = game.Players.LocalPlayer
