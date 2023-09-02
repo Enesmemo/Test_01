@@ -11,9 +11,11 @@ local Home = UI:addPage("Home",1,true,6)
 
 local PLIST = {}
 
-for i,v in pairs(game:GetService("Players"):GetPlayers()) do
-    if v.DisplayName ~= localOyuncu.DisplayName then
-        table.insert(PLIST,v.DisplayName)
+while true do
+    for i,v in pairs(game:GetService("Players"):GetPlayers()) do
+        if v.DisplayName ~= localOyuncu.DisplayName then
+            table.insert(PLIST,v.DisplayName)
+        end
     end
 end
 
