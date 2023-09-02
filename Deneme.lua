@@ -10,12 +10,7 @@ local UI = GUI:CreateWindow("Deneme","Developer: DraWatX")
 local Home = UI:addPage("Home",1,true,6)
 
 while true do
-    local PLIST = {}
-    for i,v in pairs(game:GetService("Players"):GetPlayers()) do
-        if v.DisplayName ~= localOyuncu.DisplayName then
-            table.insert(PLIST,v.DisplayName)
-        end
-    end
+    PList()
     wait(10)
 end
 
@@ -35,6 +30,15 @@ Home:addButton("On/Off Follow Target",function()
         F_T()
     end
 end)
+
+function PList()
+    local PLIST = {}
+    for i,v in pairs(game:GetService("Players"):GetPlayers()) do
+        if v.DisplayName ~= localOyuncu.DisplayName then
+            table.insert(PLIST,v.DisplayName)
+        end
+    end
+end
 
 function F_T()
     game:GetService("RunService").Heartbeat:Connect(function()
