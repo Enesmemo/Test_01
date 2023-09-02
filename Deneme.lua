@@ -20,7 +20,7 @@ Home:addDropdown("Select Target",PLIST,4,function(value)
 end)
 
 Home:addButton("Follow Target",function()
-    if getgenv().F_T == false
+    if getgenv().F_T == false then
         getgenv().F_T = true
         F_T()
     else
