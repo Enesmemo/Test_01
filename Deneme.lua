@@ -9,7 +9,7 @@ local UI = GUI:CreateWindow("Deneme","Developer: DraWatX")
 
 local Home = UI:addPage("Home",1,true,6)
 
-local PLIST = {}
+PLIST = {}
 
 while true do
     for i,v in pairs(game:GetService("Players"):GetPlayers()) do
