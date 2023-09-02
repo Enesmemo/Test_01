@@ -12,7 +12,9 @@ local Home = UI:addPage("Home",1,true,6)
 local PLIST = {}
 
 for i,v in pairs(game:GetService("Players"):GetPlayers()) do
-    table.insert(PLIST,v.DisplayName)
+    if v.DisplayName ~= localPlayer.Name then
+        table.insert(PLIST,v.DisplayName)
+    end
 end
 
 Home:addDropdown("Select Target",PLIST,4,function(value)
