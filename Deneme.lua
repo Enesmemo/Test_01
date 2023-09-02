@@ -17,6 +17,7 @@ while true do
             table.insert(PLIST,v.DisplayName)
         end
     end
+    wait()
 end
 
 Home:addDropdown("Select Target",PLIST,4,function(value)
