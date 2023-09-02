@@ -1,7 +1,7 @@
 local localPlayer = game.Players.LocalPlayer
 
 getgenv().S_P = ""
-getgenv().T_F = false;
+getgenv().F_T = false;
 
 local GUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/aaaa"))()
 
@@ -15,12 +15,21 @@ for i,v in pairs(game:GetService("Players"):GetPlayers()) do
     table.insert(PLIST,v.DisplayName)
 end
 
-Home:addDropdown("Player Tracking",PLIST,4,function(value)
+Home:addDropdown("Select Target",PLIST,4,function(value)
     getgenv().S_P = value
 end)
 
-function T_F()
-    game:GetService("RunService").Heartbeat:Connect(function()
+Home:addButton("Follow Target",function()
+    if getgenv().F_T == false
+        getgenv().F_T = true
+        F_T()
+    else
+        getgenv().F_T = false
+    end
+end)
+
+function F_T()
+    while getgenv().F_T == true do
         local hedefOyuncu = game.Players:FindFirstChild(getgenv().S_P)
     
         if hedefOyuncu and hedefOyuncu.Character and hedefOyuncu.Character:FindFirstChild("Head") then
@@ -28,9 +37,9 @@ function T_F()
             local localKafa = localOyuncu.Character.Head
 
             local humanoidRootPart = localOyuncu.Character:FindFirstChild("HumanoidRootPart")
-            if humanoidRootPart and getgenv().T_F then
+            if humanoidRootPart then
                 humanoidRootPart.CFrame = CFrame.new(hedefKafa.Position + Vector3.new(0, -8, 0), localKafa.Position)
             end
         end
-    end)
+    end
 end
