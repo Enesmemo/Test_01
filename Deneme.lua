@@ -12,7 +12,9 @@ local Home = UI:addPage("Home",1,true,6)
 local PLIST = {}
 
 for i,v in pairs(game:GetService("Players"):GetPlayers()) do
-    table.insert(PLIST,v.DisplayName)
+    if v.DisplayName ~= localOyuncu.DisplayName then
+        table.insert(PLIST,v.DisplayName)
+    end
 end
 
 Home:addDropdown("Select Target",PLIST,4,function(value)
@@ -56,7 +58,7 @@ function F_T()
                 kamera.CameraSubject = hedefOyuncu.Character.Humanoid
             end
         else
-            kamera.CameraSubject = Player.Character.Humanoid
+            kamera.CameraSubject = localOyuncu.Character.Humanoid
         end
     end)
 end
