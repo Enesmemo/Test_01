@@ -62,7 +62,10 @@ function F_T()
 
             local humanoidRootPart = localOyuncu.Character:FindFirstChild("HumanoidRootPart")
             if humanoidRootPart and getgenv().F_T then
-                humanoidRootPart.CFrame = CFrame.new(hedefKafa.Position + Vector3.new(0, -6.5, 0), localKafa.Position)
+                while true do
+                    humanoidRootPart.CFrame = CFrame.new(hedefKafa.Position + Vector3.new(0, -7, 0), localKafa.Position)
+                    wait()
+                end
             end
         end
 
