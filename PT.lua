@@ -4,6 +4,7 @@ getgenv().S_P = ""
 getgenv().F_T = false;
 
 local Library = loadstring(game:HttpGet('https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/Shaman.lua'))()
+
 local Flags = Library.Flags
 
 local Window = Library:Window({
@@ -73,13 +74,22 @@ function F_T()
 
         if hedefOyuncu and getgenv().F_T then
             if hedefOyuncu.Character then
-                kamera.CameraSubject = hedefOyuncu.Character.Humanoid
+                while true do
+                    kamera.CameraSubject = hedefOyuncu.Character.Humanoid
+                    wait()
+                end
             else
-                hedefOyuncu.CharacterAdded:Wait()
-                kamera.CameraSubject = hedefOyuncu.Character.Humanoid
+                while true do
+                    hedefOyuncu.CharacterAdded:Wait()
+                    kamera.CameraSubject = hedefOyuncu.Character.Humanoid
+                    wait()
+                end
             end
         else
-            kamera.CameraSubject = localOyuncu.Character.Humanoid
+            while true do
+                kamera.CameraSubject = localOyuncu.Character.Humanoid
+                wait()
+            end
         end
     end)
 end
