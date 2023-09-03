@@ -3,39 +3,54 @@ local localOyuncu = game.Players.LocalPlayer
 getgenv().S_P = ""
 getgenv().F_T = false;
 
-local GUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/aaaa"))()
+local Library = loadstring(game:HttpGet('https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/Shaman.lua'))()
+local Flags = Library.Flags
 
-local UI = GUI:CreateWindow("Deneme","Developer: DraWatX")
+local Window = Library:Window({
+    Text = "Player Targeting"
+})
 
-local Home = UI:addPage("Home",1,true,6)
+local Tab = Window:Tab({
+    Text = "Home"
+})
 
-local PLIST = {}
+local Section = Tab:Section({
+    Text = "Targeting Settings"
+})
 
-while true do
-    for _, player in ipairs(game.Players:GetPlayers()) do
-        if player.Name ~= localOyuncu.Name then
-            table.insert(PLIST,player.Name)
+local dropdown = Section:Dropdown({
+    Text = "Player Selection",
+    List = {},
+    Flag = "Choosen",
+    Callback = function(t)
+        getgenv().S_P = t
+    end
+})
+
+Section:Toggle({
+    Text = "Follow Target",
+    Callback = function(v)
+        if v then
+            getgenv().F_T = v
+            F_T()
+        else
+            getgenv().F_T = v
+            F_T()
         end
     end
-    wait(5)
-end
+})
 
-Home:addDropdown("Select Target",PLIST,4,function(value)
-    getgenv().S_P = value
-    print(getgenv().S_P)
-end)
+Tab:Select()
 
-Home:addButton("On/Off Follow Target",function()
-    if getgenv().F_T == false then
-        getgenv().F_T = true
-        print("On")
-        F_T()
-    else
-        getgenv().F_T = false
-        print("Off")
-        F_T()
+local function UpdatePlayerNames()
+    local playerNames = {}
+    for _, player in ipairs(game:GetService("Players"):GetPlayers()) do
+        if player.Name ~= localOyuncu.Name then
+            table.insert(playerNames, player.Name)
+        end
     end
-end)
+    dropdown:Refresh({ List = playerNames })
+end
 
 function F_T()
     game:GetService("RunService").Heartbeat:Connect(function()
@@ -64,4 +79,9 @@ function F_T()
             kamera.CameraSubject = localOyuncu.Character.Humanoid
         end
     end)
+end
+
+while true do
+    UpdatePlayerNames()
+    wait(30)
 end
