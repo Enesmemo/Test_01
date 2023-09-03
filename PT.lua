@@ -1,4 +1,4 @@
-local localOyuncu = game.Players.LocalPlayer
+local localPlayer = game.Players.LocalPlayer
 
 getgenv().S_P = ""
 getgenv().F_T = false;
@@ -22,7 +22,7 @@ local Section = Tab:Section({
 local dropdown = Section:Dropdown({
     Text = "Player Selection",
     List = {},
-    Flag = "Choosen",
+    Flag = "Chosen",
     Callback = function(t)
         getgenv().S_P = t
     end
@@ -46,7 +46,7 @@ Tab:Select()
 local function UpdatePlayerNames()
     local playerNames = {}
     for _, player in ipairs(game:GetService("Players"):GetPlayers()) do
-        if player.Name ~= localOyuncu.Name then
+        if player.Name ~= localPlayer.Name then
             table.insert(playerNames, player.Name)
         end
     end
@@ -55,26 +55,26 @@ end
 
 function F_T()
     game:GetService("RunService").Heartbeat:Connect(function()
-        local hedefOyuncu = game.Players:FindFirstChild(getgenv().S_P)
-        if hedefOyuncu and hedefOyuncu.Character and hedefOyuncu.Character:FindFirstChild("Head") then
-            local hedefKafa = hedefOyuncu.Character.Head
-            local localKafa = localOyuncu.Character.Head
-            local humanoidRootPart = localOyuncu.Character:FindFirstChild("HumanoidRootPart")
+        local targetPlayer = game.Players:FindFirstChild(getgenv().S_P)
+        if targetPlayer and targetPlayer.Character and targetPlayer.Character:FindFirstChild("Head") then
+            local targetHead = targetPlayer.Character.Head
+            local localHead = localPlayer.Character.Head
+            local humanoidRootPart = localPlayer.Character:FindFirstChild("HumanoidRootPart")
             if humanoidRootPart and getgenv().F_T then
-                humanoidRootPart.CFrame = CFrame.new(hedefKafa.Position + Vector3.new(0, -7, 0), localKafa.Position)
+                humanoidRootPart.CFrame = CFrame.new(targetHead.Position + Vector3.new(0, -7, 0), localHead.Position)
             end
         end
         
-        local kamera = game.Workspace.CurrentCamera
-        if hedefOyuncu and getgenv().F_T then
-            if hedefOyuncu.Character then
-                kamera.CameraSubject = hedefOyuncu.Character.Humanoid
+        local camera = game.Workspace.CurrentCamera
+        if targetPlayer and getgenv().F_T then
+            if targetPlayer.Character then
+                camera.CameraSubject = targetPlayer.Character.Humanoid
             else
-                hedefOyuncu.CharacterAdded:Wait()
-                kamera.CameraSubject = hedefOyuncu.Character.Humanoid
+                targetPlayer.CharacterAdded:Wait()
+                camera.CameraSubject = targetPlayer.Character.Humanoid
             end
         else
-            kamera.CameraSubject = localOyuncu.Character.Humanoid
+            camera.CameraSubject = localPlayer.Character.Humanoid
         end
     end)
 end
