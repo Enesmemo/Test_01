@@ -56,40 +56,25 @@ end
 function F_T()
     game:GetService("RunService").Heartbeat:Connect(function()
         local hedefOyuncu = game.Players:FindFirstChild(getgenv().S_P)
-    
         if hedefOyuncu and hedefOyuncu.Character and hedefOyuncu.Character:FindFirstChild("Head") then
             local hedefKafa = hedefOyuncu.Character.Head
             local localKafa = localOyuncu.Character.Head
-
             local humanoidRootPart = localOyuncu.Character:FindFirstChild("HumanoidRootPart")
             if humanoidRootPart and getgenv().F_T then
-                while true do
-                    humanoidRootPart.CFrame = CFrame.new(hedefKafa.Position + Vector3.new(0, -7, 0), localKafa.Position)
-                    wait()
-                end
+                humanoidRootPart.CFrame = CFrame.new(hedefKafa.Position + Vector3.new(0, -7, 0), localKafa.Position)
             end
         end
-
+        
         local kamera = game.Workspace.CurrentCamera
-
         if hedefOyuncu and getgenv().F_T then
             if hedefOyuncu.Character then
-                while true do
-                    kamera.CameraSubject = hedefOyuncu.Character.Humanoid
-                    wait()
-                end
+                kamera.CameraSubject = hedefOyuncu.Character.Humanoid
             else
-                while true do
-                    hedefOyuncu.CharacterAdded:Wait()
-                    kamera.CameraSubject = hedefOyuncu.Character.Humanoid
-                    wait()
-                end
+                hedefOyuncu.CharacterAdded:Wait()
+                kamera.CameraSubject = hedefOyuncu.Character.Humanoid
             end
         else
-            while true do
-                kamera.CameraSubject = localOyuncu.Character.Humanoid
-                wait()
-            end
+            kamera.CameraSubject = localOyuncu.Character.Humanoid
         end
     end)
 end
