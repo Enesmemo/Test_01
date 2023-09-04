@@ -8,11 +8,11 @@ local Library = loadstring(game:HttpGet('https://raw.githubusercontent.com/blood
 local Flags = Library.Flags
 
 local Window = Library:Window({
-    Text = "Player Targeting"
+    Text = "DraWatX PT"
 })
 
 local Tab = Window:Tab({
-    Text = "Home"
+    Text = "Player Targeting"
 })
 
 local Section = Tab:Section({
@@ -20,7 +20,7 @@ local Section = Tab:Section({
 })
 
 local dropdown = Section:Dropdown({
-    Text = "Player Selection",
+    Text = "Choose Player",
     List = {},
     Flag = "Choosen",
     Callback = function(t)
@@ -29,7 +29,7 @@ local dropdown = Section:Dropdown({
 })
 
 Section:Toggle({
-    Text = "Follow Target",
+    Text = "Follow Player",
     Callback = function(v)
         if v then
             getgenv().F_T = v
@@ -63,7 +63,7 @@ function F_T()
 
             local humanoidRootPart = localOyuncu.Character:FindFirstChild("HumanoidRootPart")
             if humanoidRootPart and getgenv().F_T then
-                humanoidRootPart.CFrame = CFrame.new(hedefKafa.Position + Vector3.new(0, -10, 0), localKafa.Position)
+                humanoidRootPart.CFrame = CFrame.new(hedefKafa.Position + Vector3.new(0, -7, 0), localKafa.Position)
             end
         end
         if hedefOyuncu and getgenv().F_T then
