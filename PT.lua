@@ -2,7 +2,7 @@ local localOyuncu = game.Players.LocalPlayer
 local kamera = game.Workspace.CurrentCamera
 
 getgenv().S_P = ""
-getgenv().F_T = false;
+getgenv().F_P = false;
 
 local Library = loadstring(game:HttpGet('https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/Shaman.lua'))()
 local Flags = Library.Flags
@@ -32,11 +32,11 @@ Section:Toggle({
     Text = "Follow Player",
     Callback = function(v)
         if v then
-            getgenv().F_T = v
-            F_T()
+            getgenv().F_P = v
+            F_P()
         else
-            getgenv().F_T = v
-            F_T()
+            getgenv().F_P = v
+            F_P()
         end
     end
 })
@@ -53,7 +53,7 @@ local function UpdatePlayerNames()
     dropdown:Refresh({ List = playerNames })
 end
 
-function F_T()
+function F_P()
     game:GetService("RunService").Heartbeat:Connect(function()
         local hedefOyuncu = game.Players:FindFirstChild(getgenv().S_P)
     
@@ -62,11 +62,11 @@ function F_T()
             local localKafa = localOyuncu.Character.Head
 
             local humanoidRootPart = localOyuncu.Character:FindFirstChild("HumanoidRootPart")
-            if humanoidRootPart and getgenv().F_T then
+            if humanoidRootPart and getgenv().F_P then
                 humanoidRootPart.CFrame = CFrame.new(hedefKafa.Position + Vector3.new(0, -7, 0), localKafa.Position)
             end
         end
-        if hedefOyuncu and getgenv().F_T then
+        if hedefOyuncu and getgenv().F_P then
             if hedefOyuncu.Character then
                 kamera.CameraSubject = hedefOyuncu.Character.Humanoid
             else
