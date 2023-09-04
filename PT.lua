@@ -23,19 +23,19 @@ local dropdown = Section:Dropdown({
     Text = "Choose Player",
     List = {},
     Flag = "Choosen",
-    Callback = function(t)
-        getgenv().S_P = t
+    Callback = function(p)
+        getgenv().S_P = p
     end
 })
 
 Section:Toggle({
     Text = "Follow Player",
-    Callback = function(v)
+    Callback = function(b)
         if v then
-            getgenv().F_P = v
+            getgenv().F_P = b
             F_P()
         else
-            getgenv().F_P = v
+            getgenv().F_P = b
             F_P()
         end
     end
