@@ -1,4 +1,5 @@
 local localOyuncu = game.Players.LocalPlayer
+local kamera = game.Workspace.CurrentCamera
 
 getgenv().S_P = ""
 getgenv().F_T = false;
@@ -55,7 +56,6 @@ end
 function F_T()
     game:GetService("RunService").Heartbeat:Connect(function()
         local hedefOyuncu = game.Players:FindFirstChild(getgenv().S_P)
-        local kamera = game.Workspace.CurrentCamera
     
         if hedefOyuncu and hedefOyuncu.Character and hedefOyuncu.Character:FindFirstChild("Head") then
             local hedefKafa = hedefOyuncu.Character.Head
@@ -66,7 +66,6 @@ function F_T()
                 humanoidRootPart.CFrame = CFrame.new(hedefKafa.Position + Vector3.new(0, -8.5, 0), localKafa.Position)
             end
         end
-
         if hedefOyuncu and getgenv().F_T then
             if hedefOyuncu.Character then
                 kamera.CameraSubject = hedefOyuncu.Character.Humanoid
