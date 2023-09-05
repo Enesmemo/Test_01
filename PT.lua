@@ -1,4 +1,4 @@
-local localOyuncu = game.Players.LocalPlayer
+local localOyuncu = game:GetService("Players").LocalPlayer
 local localOyuncular = game:GetService("Players")
 local kamera = game.Workspace.CurrentCamera
 
