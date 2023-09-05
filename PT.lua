@@ -1,6 +1,8 @@
 local localOyuncu = game:GetService("Players").LocalPlayer
 local localOyuncular = game:GetService("Players")
 local kamera = game.Workspace.CurrentCamera
+local lowestHealth = math.huge
+local lowestHealthPlayer = nil
 
 getgenv().S_P = ""
 getgenv().F_D = 0
@@ -94,18 +96,21 @@ function F_P()
             local hedefOyuncu = game.Players:FindFirstChild(getgenv().S_P)
         else
             for i, player in ipairs(localOyuncular:GetPlayers()) do
-            local oyuncu = player.Character
-            if oyuncu then
-                local humanoid = oyuncu:FindFirstChild("Humanoid")
+            local character = player.Character
+            if character then
+                local humanoid = character:FindFirstChild("Humanoid")
                 if humanoid then
                     local health = humanoid.Health
-                    if health > 0 and health < math.huge then
-                        local hedefOyuncu = game.Players:FindFirstChild(player.Name)
+                    if health > 0 and health < lowestHealth then
+                        lowestHealth = health
+                        lowestHealthPlayer = player
+                        if lowestHealthPlayer then
+                            print("En düşük canlı oyuncu: " .. lowestHealthPlayer.Name .. " (" .. tostring(lowestHealth) .. ")")
+                        end
                     end
                 end
             end
         end
-    
         if hedefOyuncu and hedefOyuncu.Character and hedefOyuncu.Character:FindFirstChild("Head") then
             local hedefKafa = hedefOyuncu.Character.Head
             local localKafa = localOyuncu.Character.Head
