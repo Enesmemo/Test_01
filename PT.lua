@@ -63,7 +63,7 @@ function F_P()
 
             local humanoidRootPart = localOyuncu.Character:FindFirstChild("HumanoidRootPart")
             if humanoidRootPart and getgenv().F_P then
-                humanoidRootPart.CFrame = CFrame.new(hedefKafa.Position + Vector3.new(0, -7, 0), localKafa.Position)
+                humanoidRootPart.CFrame = CFrame.new(hedefKafa.Position + Vector3.new(0, -3, 0), localKafa.Position)
             end
         end
         if hedefOyuncu and getgenv().F_P then
