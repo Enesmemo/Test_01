@@ -1,5 +1,4 @@
 local localOyuncu = game.Players.LocalPlayer
-
 local kamera = game.Workspace.CurrentCamera
 
 getgenv().S_P = ""
@@ -7,7 +6,6 @@ getgenv().F_D = 0
 getgenv().F_P = false;
 
 local Library = loadstring(game:HttpGet('https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/Shaman.lua'))()
-
 local Flags = Library.Flags
 
 local Window = Library:Window({
@@ -38,7 +36,9 @@ Section:Slider({
     Maximum = 3,
     Flag = "SliderFlag",
     Callback = function(v)
-        getgenv().F_D = v
+        if getgenv().F_P then
+            getgenv().F_D = v
+        end
     end
 })
 
