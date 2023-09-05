@@ -1,10 +1,13 @@
 local localOyuncu = game.Players.LocalPlayer
+
 local kamera = game.Workspace.CurrentCamera
 
 getgenv().S_P = ""
+getgenv().F_D = 0
 getgenv().F_P = false;
 
 local Library = loadstring(game:HttpGet('https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/Shaman.lua'))()
+
 local Flags = Library.Flags
 
 local Window = Library:Window({
@@ -25,6 +28,17 @@ local dropdown = Section:Dropdown({
     Flag = "Choosen",
     Callback = function(p)
         getgenv().S_P = p
+    end
+})
+
+Section:Slider({
+    Text = "Following Distance",
+    Default = 0,
+    Minimum = -7,
+    Maximum = 3,
+    Flag = "SliderFlag",
+    Callback = function(v)
+        getgenv().F_D = v
     end
 })
 
@@ -63,9 +77,10 @@ function F_P()
 
             local humanoidRootPart = localOyuncu.Character:FindFirstChild("HumanoidRootPart")
             if humanoidRootPart and getgenv().F_P then
-                humanoidRootPart.CFrame = CFrame.new(hedefKafa.Position + Vector3.new(0, -3, 0), localKafa.Position)
+                humanoidRootPart.CFrame = CFrame.new(hedefKafa.Position + Vector3.new(0, getgenv().F_D, 0), localKafa.Position)
             end
         end
+
         if hedefOyuncu and getgenv().F_P then
             if hedefOyuncu.Character then
                 kamera.CameraSubject = hedefOyuncu.Character.Humanoid
