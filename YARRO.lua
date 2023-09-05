@@ -67,12 +67,12 @@ Section:Toggle({
 
 Section:Toggle({
     Text = "Focus Lowest Health",
-    Callback = function(b)
-        if b then
-            getgenv().F_L_H = b
+    Callback = function(b2)
+        if b2 then
+            getgenv().F_L_H = b2
             F_P()
         else
-            getgenv().F_L_H = b
+            getgenv().F_L_H = b2
             F_P()
         end
     end
