@@ -67,12 +67,12 @@ Section:Toggle({
 
 Section:Toggle({
     Text = "Focus Lowest Health",
-    Callback = function(b2)
-        if b2 then
-            getgenv().F_L_H = b2
+    Callback = function(b)
+        if b then
+            getgenv().F_L_H = b
             F_P()
         else
-            getgenv().F_L_H = b2
+            getgenv().F_L_H = b
             F_P()
         end
     end
@@ -96,16 +96,17 @@ function F_P()
             local hedefOyuncu = game.Players:FindFirstChild(getgenv().S_P)
         else
             for i, player in ipairs(localOyuncular:GetPlayers()) do
-            local character = player.Character
-            if character then
-                local humanoid = character:FindFirstChild("Humanoid")
-                if humanoid then
-                    local health = humanoid.Health
-                    if health > 0 and health < lowestHealth then
-                        lowestHealth = health
-                        lowestHealthPlayer = player
-                        if lowestHealthPlayer then
-                            print("En düşük canlı oyuncu: " .. lowestHealthPlayer.Name .. " (" .. tostring(lowestHealth) .. ")")
+                local character = player.Character
+                if character then
+                    local humanoid = character:FindFirstChild("Humanoid")
+                    if humanoid then
+                        local health = humanoid.Health
+                        if health > 0 and health < lowestHealth then
+                            lowestHealth = health
+                            lowestHealthPlayer = player
+                            if lowestHealthPlayer then
+                                print("En düşük canlı oyuncu: " .. lowestHealthPlayer.Name .. " (" .. tostring(lowestHealth) .. ")")
+                            end
                         end
                     end
                 end
@@ -116,12 +117,11 @@ function F_P()
             local localKafa = localOyuncu.Character.Head
 
             local humanoidRootPart = localOyuncu.Character:FindFirstChild("HumanoidRootPart")
-            if humanoidRootPart and getgenv().F_P then
+            if humanoidRootPart and getgenv().F_P getgenv().F_L_H then
                 humanoidRootPart.CFrame = CFrame.new(hedefKafa.Position + Vector3.new(0, getgenv().F_D, 0), localKafa.Position)
             end
         end
-
-        if hedefOyuncu and getgenv().F_P then
+        if hedefOyuncu and getgenv().F_P and getgenv().F_L_H then
             if hedefOyuncu.Character then
                 kamera.CameraSubject = hedefOyuncu.Character.Humanoid
             else
