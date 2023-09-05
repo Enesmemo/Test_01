@@ -36,7 +36,7 @@ Section:Slider({
     Maximum = 3,
     Flag = "SliderFlag",
     Callback = function(v)
-        if getgenv().F_P then
+        if getgenv().F_P == false then
             getgenv().F_D = v
         end
     end
