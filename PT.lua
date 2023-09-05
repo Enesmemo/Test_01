@@ -45,7 +45,7 @@ Section:Slider({
 Section:Toggle({
     Text = "Follow Player",
     Callback = function(b)
-        if v then
+        if b then
             getgenv().F_P = b
             F_P()
         else
