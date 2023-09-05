@@ -24,8 +24,8 @@ local dropdown = Section:Dropdown({
     Text = "Choose Player",
     List = {},
     Flag = "Choosen",
-    Callback = function(p)
-        getgenv().S_P = p
+    Callback = function(s)
+        getgenv().S_P = s
     end
 })
 
