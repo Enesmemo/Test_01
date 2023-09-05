@@ -1,9 +1,11 @@
 local localOyuncu = game.Players.LocalPlayer
+local localOyuncular = game:GetService("Players")
 local kamera = game.Workspace.CurrentCamera
 
 getgenv().S_P = ""
 getgenv().F_D = 0
 getgenv().F_P = false;
+getgenv().F_L_H = false;
 
 local Library = loadstring(game:HttpGet('https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/Shaman.lua'))()
 local Flags = Library.Flags
@@ -25,7 +27,9 @@ local dropdown = Section:Dropdown({
     List = {},
     Flag = "Choosen",
     Callback = function(s)
-        getgenv().S_P = s
+        if getgenv().F_L_H == false then
+            getgenv().S_P = s
+        end
     end
 })
 
@@ -36,7 +40,7 @@ Section:Slider({
     Maximum = 3,
     Flag = "SliderFlag",
     Callback = function(v)
-        if getgenv().F_P == false then
+        if getgenv().F_P == false and getgenv().F_L_H == false then
             getgenv().F_D = v
         end
     end
@@ -45,11 +49,28 @@ Section:Slider({
 Section:Toggle({
     Text = "Follow Player",
     Callback = function(b)
-        if v then
-            getgenv().F_P = b
+        if b then
+            if getgenv().F_L_H == false then
+                getgenv().F_P = b
+                F_P()
+            end
+        else
+            if getgenv().F_L_H == true then
+                getgenv().F_P = getgenv().F_L_H
+                F_P()
+            end
+        end
+    end
+})
+
+Section:Toggle({
+    Text = "Focus Lowest Health",
+    Callback = function(b)
+        if b then
+            getgenv().F_L_H = b
             F_P()
         else
-            getgenv().F_P = b
+            getgenv().F_L_H = b
             F_P()
         end
     end
@@ -59,7 +80,7 @@ Tab:Select()
 
 local function UpdatePlayerNames()
     local playerNames = {}
-    for _, player in ipairs(game:GetService("Players"):GetPlayers()) do
+    for _, player in ipairs(localOyuncular:GetPlayers()) do
         if player.Name ~= localOyuncu.Name then
             table.insert(playerNames, player.Name)
         end
@@ -69,7 +90,21 @@ end
 
 function F_P()
     game:GetService("RunService").Heartbeat:Connect(function()
-        local hedefOyuncu = game.Players:FindFirstChild(getgenv().S_P)
+        if getgenv().F_L_H == false then
+            local hedefOyuncu = game.Players:FindFirstChild(getgenv().S_P)
+        else
+            for i, player in ipairs(localOyuncular:GetPlayers()) do
+            local oyuncu = player.Character
+            if oyuncu then
+                local humanoid = oyuncu:FindFirstChild("Humanoid")
+                if humanoid then
+                    local health = humanoid.Health
+                    if health > 0 and health < math.huge then
+                        local hedefOyuncu = game.Players:FindFirstChild(player.Name)
+                    end
+                end
+            end
+        end
     
         if hedefOyuncu and hedefOyuncu.Character and hedefOyuncu.Character:FindFirstChild("Head") then
             local hedefKafa = hedefOyuncu.Character.Head
