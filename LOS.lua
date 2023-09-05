@@ -1184,5 +1184,7 @@ function C_A_F()
     end)
 end
 else
-    player:Kick("https://discord.gg/HGqAuUUU3Z")
+    if game.PlaceId == 3101667897 then
+        player:Kick("https://discord.gg/HGqAuUUU3Z")
+    end
 end
