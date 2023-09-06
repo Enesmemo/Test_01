@@ -117,7 +117,7 @@ function UpdateLowestHealth()
     if lowestHealthPlayer then
         if lowestHealthPlayer.Name ~= localOyuncu.Name then
             local tamSayi = math.floor(lowestHealth)
-            local playerString = "P: " .. lowestHealthPlayer.Name .. " H: " .. tamSayi
+            local playerString = "N: " .. lowestHealthPlayer.Name .. " H: " .. tamSayi
             label:Set({
                 Text = playerString,
                 Color = Color3.fromRGB(217, 97, 99),
