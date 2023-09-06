@@ -41,11 +41,16 @@ local dropdown2 = Section:Dropdown({
 })
 
 local toggle1 = Section:Toggle({
-    Text = "Follow Player",
+    Text = "Focus Selected Player",
     Callback = function(b)
         if b then
-            getgenv().F_P = b
-            F_P()
+            if getgenv().F_L_H == false then
+                getgenv().F_P = b
+                F_P()
+            else
+                toggle1:Set(false)
+                getgenv().F_P = false
+            end
         else
             getgenv().F_P = b
             F_P()
@@ -54,11 +59,16 @@ local toggle1 = Section:Toggle({
 })
 
 local toggle2 = Section:Toggle({
-    Text = "Focus Lowest Health",
+    Text = "Focus Lowest Health Player",
     Callback = function(b2)
         if b2 then
-            getgenv().F_L_H = b2
-            F_L_H()
+            if getgenv().F_P == false then
+                getgenv().F_L_H = b2
+                F_L_H()
+            else
+                toggle2:Set(false)
+                getgenv().F_L_H = false
+            end
         else
             getgenv().F_L_H = b2
             F_L_H()
@@ -87,7 +97,6 @@ end
 function F_P()
     game:GetService("RunService").Heartbeat:Connect(function()
         UpdateLowestHealth()
-
         local hedefOyuncu = game.Players:FindFirstChild(getgenv().S_P)
 
         if hedefOyuncu and hedefOyuncu.Character and hedefOyuncu.Character:FindFirstChild("Head") then
@@ -152,11 +161,11 @@ function F_L_H()
             local localKafa = localOyuncu.Character.Head
 
             local humanoidRootPart = localOyuncu.Character:FindFirstChild("HumanoidRootPart")
-            if humanoidRootPart and getgenv().F_L_H then
+            if humanoidRootPart and getgenv().F_L_H and getgenv().F_P == false then
                 humanoidRootPart.CFrame = CFrame.new(hedefKafa.Position + Vector3.new(0, getgenv().F_D, 0), localKafa.Position)
             end
         end
-        if hedefOyuncu and getgenv().F_L_H then
+        if hedefOyuncu and getgenv().F_L_H and getgenv().F_P == false then
             if hedefOyuncu.Character then
                 kamera.CameraSubject = hedefOyuncu.Character.Humanoid
             else
