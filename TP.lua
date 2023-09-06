@@ -139,7 +139,6 @@ function UpdateLowestHealth()
     if lowestHealthPlayer then
         if lowestHealthPlayer.Name ~= localOyuncu.Name then
             getgenv().L_H_P = lowestHealthPlayer.Name
-            F_L_H()
             local tamSayi = math.floor(lowestHealth)
             local playerString = "N: " .. lowestHealthPlayer.Name .. " H: " .. tamSayi
             label:Set({
