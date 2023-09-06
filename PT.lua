@@ -2,8 +2,10 @@ local localOyuncu = game.Players.LocalPlayer
 local kamera = game.Workspace.CurrentCamera
 
 getgenv().S_P = ""
+getgenv().L_H_P = ""
 getgenv().F_D = 0
 getgenv().F_P = false;
+getgenv().F_L_H = false;
 
 local Library = loadstring(game:HttpGet('https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/Shaman.lua'))()
 local Flags = Library.Flags
@@ -38,7 +40,7 @@ local dropdown2 = Section:Dropdown({
     end
 })
 
-Section:Toggle({
+local toggle1 = Section:Toggle({
     Text = "Follow Player",
     Callback = function(b)
         if b then
@@ -55,6 +57,19 @@ local label = Section:Label({
     Text = "",
     Color = Color3.fromRGB(217, 97, 99),
     Tooltip = "The Player With The Lowest Health On The Server"
+})
+
+local toggle2 = Section:Toggle({
+    Text = "Focus Lowest Health",
+    Callback = function(b2)
+        if b2 then
+            getgenv().F_L_H = b2
+            F_L_H()
+        else
+            getgenv().F_L_H = b2
+            F_L_H()
+        end
+    end
 })
 
 Tab:Select()
@@ -80,11 +95,11 @@ function F_P()
             local localKafa = localOyuncu.Character.Head
 
             local humanoidRootPart = localOyuncu.Character:FindFirstChild("HumanoidRootPart")
-            if humanoidRootPart and getgenv().F_P then
+            if humanoidRootPart and getgenv().F_P and getgenv().F_L_H == false then
                 humanoidRootPart.CFrame = CFrame.new(hedefKafa.Position + Vector3.new(0, getgenv().F_D, 0), localKafa.Position)
             end
         end
-        if hedefOyuncu and getgenv().F_P then
+        if hedefOyuncu and getgenv().F_P and getgenv().F_L_H == false then
             if hedefOyuncu.Character then
                 kamera.CameraSubject = hedefOyuncu.Character.Humanoid
             else
@@ -116,6 +131,8 @@ function UpdateLowestHealth()
     end
     if lowestHealthPlayer then
         if lowestHealthPlayer.Name ~= localOyuncu.Name then
+            getgenv().L_H_P = lowestHealthPlayer.Name
+            F_L_H()
             local tamSayi = math.floor(lowestHealth)
             local playerString = "N: " .. lowestHealthPlayer.Name .. " H: " .. tamSayi
             label:Set({
@@ -125,6 +142,32 @@ function UpdateLowestHealth()
             })
         end
     end
+end
+
+function F_L_H()
+    game:GetService("RunService").Heartbeat:Connect(function()
+        local hedefOyuncu = game.Players:FindFirstChild(getgenv().L_H_P)
+
+        if hedefOyuncu and hedefOyuncu.Character and hedefOyuncu.Character:FindFirstChild("Head") then
+            local hedefKafa = hedefOyuncu.Character.Head
+            local localKafa = localOyuncu.Character.Head
+
+            local humanoidRootPart = localOyuncu.Character:FindFirstChild("HumanoidRootPart")
+            if humanoidRootPart and getgenv().F_L_H then
+                humanoidRootPart.CFrame = CFrame.new(hedefKafa.Position + Vector3.new(0, getgenv().F_D, 0), localKafa.Position)
+            end
+        end
+        if hedefOyuncu and getgenv().F_L_H then
+            if hedefOyuncu.Character then
+                kamera.CameraSubject = hedefOyuncu.Character.Humanoid
+            else
+                hedefOyuncu.CharacterAdded:Wait()
+                kamera.CameraSubject = hedefOyuncu.Character.Humanoid
+            end
+        else
+            kamera.CameraSubject = localOyuncu.Character.Humanoid
+        end
+    end)
 end
 
 F_P()
