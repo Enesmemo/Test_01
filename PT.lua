@@ -23,7 +23,7 @@ local Section = Tab:Section({
 local dropdown1 = Section:Dropdown({
     Text = "Select Player",
     List = {},
-    Flag = "Choosen",
+    Flag = "Choosen1",
     Callback = function(s)
         getgenv().S_P = s
     end
@@ -32,7 +32,7 @@ local dropdown1 = Section:Dropdown({
 local dropdown2 = Section:Dropdown({
     Text = "Following Distance",
     List = {"-7","-6","-5","-4","-3","-2","-1","0"},
-    Flag = "Choosen",
+    Flag = "Choosen2",
     Callback = function(v)
         getgenv().F_D = v
     end
