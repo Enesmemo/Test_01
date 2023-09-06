@@ -42,15 +42,22 @@ local dropdown2 = Section:Dropdown({
 
 Section:RadioButton({
     Text = "Targeting Mod",
-    Options = {"Focus Selected","Focus Lowest Health"},
+    Options = {"Focus Selected","Focus Lowest Health","Off"},
     Callback = function(b)
         if b == "Focus Selected" then
             getgenv().F_P = true
             getgenv().F_L_H = false
             F_P()
-        else
+        end
+        if b == "Focus Lowest Health" then
             getgenv().F_L_H = true
             getgenv().F_P = false
+            F_L_H()
+        end
+        if b == "Off" then
+            getgenv().F_P = false
+            getgenv().F_L_H = false
+            F_P()
             F_L_H()
         end
     end
@@ -98,6 +105,7 @@ function F_P()
         else
             kamera.CameraSubject = localOyuncu.Character.Humanoid
         end
+        wait()
     end)
 end
 
@@ -157,6 +165,7 @@ function F_L_H()
         else
             kamera.CameraSubject = localOyuncu.Character.Humanoid
         end
+        wait()
     end)
 end
 
