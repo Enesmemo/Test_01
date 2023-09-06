@@ -52,9 +52,9 @@ Section:Toggle({
 })
 
 local label = Section:Label({
-    Text = "This is a label.",
+    Text = "",
     Color = Color3.fromRGB(217, 97, 99),
-    Tooltip = "This is a label."
+    Tooltip = "The Player With The Lowest Health On The Server"
 })
 
 Tab:Select()
@@ -72,6 +72,7 @@ end
 function F_P()
     game:GetService("RunService").Heartbeat:Connect(function()
         local hedefOyuncu = game.Players:FindFirstChild(getgenv().S_P)
+
         if hedefOyuncu and hedefOyuncu.Character and hedefOyuncu.Character:FindFirstChild("Head") then
             local hedefKafa = hedefOyuncu.Character.Head
             local localKafa = localOyuncu.Character.Head
@@ -81,6 +82,7 @@ function F_P()
                 humanoidRootPart.CFrame = CFrame.new(hedefKafa.Position + Vector3.new(0, getgenv().F_D, 0), localKafa.Position)
             end
         end
+
         if hedefOyuncu and getgenv().F_P then
             if hedefOyuncu.Character then
                 kamera.CameraSubject = hedefOyuncu.Character.Humanoid
@@ -94,7 +96,35 @@ function F_P()
     end)
 end
 
+function UpdateLowestHealth()
+    local lowestHealthPlayer = nil
+    local lowestHealth = math.huge
+    for _, player in ipairs(game:GetService("Players"):GetPlayers()) do
+        if player.Name ~= localOyuncu.Name then
+            if player.Character and player.Character:FindFirstChild("Humanoid") then
+                local humanoid = player.Character.Humanoid
+                if humanoid.Health < lowestHealth then
+                    lowestHealth = humanoid.Health
+                    lowestHealthPlayer = player.Name
+                end
+            end
+        end
+    end
+    if lowestHealthPlayer then
+        local playerString = lowestHealthPlayer .. " (" .. lowestHealth .. ")"
+        label:Set({
+            Text = playerString,
+            Color = Color3.fromRGB(255, 255, 255) -- İstediğin bir renk seçebilirsin
+        })
+    end
+end
+
 while true do
     UpdatePlayerNames()
     wait(30)
+end
+
+while true do
+    UpdateLowestHealth()
+    wait()
 end
