@@ -60,7 +60,7 @@ local function UpdatePlayerNames()
             table.insert(playerNames, player.Name)
         end
     end
-    dropdown:Refresh({ List = playerNames })
+    dropdown1:Refresh({ List = playerNames })
 end
 
 function F_P()
