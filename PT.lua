@@ -75,6 +75,7 @@ function F_P()
     game:GetService("RunService").Heartbeat:Connect(function()
         UpdateLowestHealth()
         local hedefOyuncu = game.Players:FindFirstChild(getgenv().S_P)
+    
         if hedefOyuncu and hedefOyuncu.Character and hedefOyuncu.Character:FindFirstChild("Head") then
             local hedefKafa = hedefOyuncu.Character.Head
             local localKafa = localOyuncu.Character.Head
@@ -111,13 +112,12 @@ function UpdateLowestHealth()
             end
         end
     end
+
     if lowestHealthPlayer then
         local tamSayi = math.floor(lowestHealth)
-        local playerString = "P: "..lowestHealthPlayer.. "H: "..tamSayi..
+        local playerString = lowestHealthPlayer.Name .. " (" .. tamSayi .. ")"
         label:Set({
             Text = playerString,
-            Color = Color3.fromRGB(255, 255, 255),
-            Tooltip = "The Player With The Lowest Health On The Server"
         })
     end
 end
