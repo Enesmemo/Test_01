@@ -64,7 +64,7 @@ Section:RadioButton({
 })
 
 local label = Section:Label({
-    Text = "Minimum Health 100",
+    Text = "Less Than 100 Health Not Available",
     Color = Color3.fromRGB(217, 97, 99),
     Tooltip = "The Player With The Lowest Health On The Server"
 })
