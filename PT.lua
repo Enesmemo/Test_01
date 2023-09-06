@@ -155,13 +155,8 @@ function F_L_H()
                 humanoidRootPart.CFrame = CFrame.new(hedefKafa.Position + Vector3.new(0, getgenv().F_D, 0), localKafa.Position)
             end
         end
-        if getgenv().F_L_H == true and getgenv().F_P == false then
-            if hedefOyuncu.Character then
-                kamera.CameraSubject = hedefOyuncu.Character.Humanoid
-            else
-                hedefOyuncu.CharacterAdded:Wait()
-                kamera.CameraSubject = hedefOyuncu.Character.Humanoid
-            end
+        if getgenv().F_L_H and getgenv().F_P == false then
+            kamera.CameraSubject = hedefOyuncu.Character.Humanoid   
         else
             kamera.CameraSubject = localOyuncu.Character.Humanoid
         end
