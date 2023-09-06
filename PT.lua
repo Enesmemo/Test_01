@@ -31,10 +31,9 @@ local dropdown = Section:Dropdown({
 
 Section:RadioButton({
     Text = "Following Distance",
-    Options = {"-7","-6","-5","-4","-3","-2","-1","0","1","2","3"},
+    Options = {"-7","-6","-5","-4","-3","-2","-1","0"},
     Callback = function(v)
         getgenv().F_D = v
-        print(getgenv().F_D)
     end
 })
 
