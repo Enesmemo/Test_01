@@ -100,7 +100,7 @@ function UpdateLowestHealth()
     local lowestHealthPlayer = nil
     local lowestHealth = math.huge
 
-    for i, player in ipairs(players) do
+    for i, player in ipairs(game:GetService("Players"):GetPlayers()) do
         local character = player.Character
         if character then
             local humanoid = character:FindFirstChild("Humanoid")
