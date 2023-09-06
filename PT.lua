@@ -32,7 +32,7 @@ local dropdown1 = Section:Dropdown({
 })
 
 local dropdown2 = Section:Dropdown({
-    Text = "Following Distance",
+    Text = "Select Distance",
     List = {"-7","-6","-5","-4","-3","-2","-1","0"},
     Flag = "Choosen2",
     Callback = function(v)
@@ -40,37 +40,17 @@ local dropdown2 = Section:Dropdown({
     end
 })
 
-local toggle1 = Section:Toggle({
-    Text = "Focus Selected",
+Section:RadioButton({
+    Text = "Targeting Mod",
+    Options = {"Focus Selected","Focus Lowest Health"},
     Callback = function(b)
-        if b then
-            if getgenv().F_L_H == false then
-                getgenv().F_P = b
-                F_P()
-            else
-                Callback = false
-                getgenv().F_P = false
-            end
-        else
-            getgenv().F_P = b
+        if b == "Focus Selected" then
+            getgenv().F_P = true
+            getgenv().F_L_H = false
             F_P()
-        end
-    end
-})
-
-local toggle2 = Section:Toggle({
-    Text = "Focus Lowest Health",
-    Callback = function(b2)
-        if b2 then
-            if getgenv().F_P == false then
-                getgenv().F_L_H = b2
-                F_L_H()
-            else
-                Callback = false
-                getgenv().F_L_H = false
-            end
         else
-            getgenv().F_L_H = b2
+            getgenv().F_L_H = true
+            getgenv().F_P = false
             F_L_H()
         end
     end
@@ -152,6 +132,8 @@ function UpdateLowestHealth()
     end
 end
 
+F_P()
+
 function F_L_H()
     game:GetService("RunService").Heartbeat:Connect(function()
         local hedefOyuncu = game.Players:FindFirstChild(getgenv().L_H_P)
@@ -177,8 +159,6 @@ function F_L_H()
         end
     end)
 end
-
-F_P()
 
 while true do
     UpdatePlayerNames()
