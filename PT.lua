@@ -84,7 +84,6 @@ function F_P()
                 humanoidRootPart.CFrame = CFrame.new(hedefKafa.Position + Vector3.new(0, getgenv().F_D, 0), localKafa.Position)
             end
         end
-
         if hedefOyuncu and getgenv().F_P then
             if hedefOyuncu.Character then
                 kamera.CameraSubject = hedefOyuncu.Character.Humanoid
@@ -115,11 +114,10 @@ function UpdateLowestHealth()
             end
         end
     end
-
     if lowestHealthPlayer then
         if lowestHealthPlayer.Name ~= localOyuncu.Name then
             local tamSayi = math.floor(lowestHealth)
-            local playerString = lowestHealthPlayer.Name .. " (" .. tamSayi .. ")"
+            local playerString = "P: " .. lowestHealthPlayer.Name .. " H: " .. tamSayi
             label:Set({
                 Text = playerString,
                 Color = Color3.fromRGB(217, 97, 99),
@@ -128,6 +126,8 @@ function UpdateLowestHealth()
         end
     end
 end
+
+F_P()
 
 while true do
     UpdatePlayerNames()
