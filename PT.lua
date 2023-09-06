@@ -48,7 +48,7 @@ local toggle1 = Section:Toggle({
                 getgenv().F_P = b
                 F_P()
             else
-                toggle1:Set(false)
+                toggle1:Enable(false)
                 getgenv().F_P = false
             end
         else
@@ -66,7 +66,7 @@ local toggle2 = Section:Toggle({
                 getgenv().F_L_H = b2
                 F_L_H()
             else
-                toggle2:Set(false)
+                toggle2:Enable(false)
                 getgenv().F_L_H = false
             end
         else
