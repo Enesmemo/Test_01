@@ -29,16 +29,12 @@ local dropdown = Section:Dropdown({
     end
 })
 
-Section:Slider({
+Section:RadioButton({
     Text = "Following Distance",
-    Default = 0,
-    Minimum = -7,
-    Maximum = 3,
-    Flag = "SliderFlag",
+    Options = {"-7","-6","-5","-4","-3","-2","-1","0","1","2","3"},
     Callback = function(v)
-        if getgenv().F_P == false then
-            getgenv().F_D = v
-        end
+        getgenv().F_D = v
+        print(getgenv().F_D)
     end
 })
 
