@@ -73,7 +73,10 @@ end
 
 function F_P()
     game:GetService("RunService").Heartbeat:Connect(function()
-        UpdateLowestHealth()
+        while true do
+            UpdateLowestHealth()
+            wait()
+        end
         local hedefOyuncu = game.Players:FindFirstChild(getgenv().S_P)    
         if hedefOyuncu and hedefOyuncu.Character and hedefOyuncu.Character:FindFirstChild("Head") then
             local hedefKafa = hedefOyuncu.Character.Head
