@@ -105,14 +105,13 @@ function F_P()
         else
             kamera.CameraSubject = localOyuncu.Character.Humanoid
         end
-        wait()
+        wait(3)
     end)
 end
 
 function UpdateLowestHealth()
     local lowestHealthPlayer = nil
     local lowestHealth = math.huge
-
     for i, player in ipairs(game:GetService("Players"):GetPlayers()) do
         local character = player.Character
         if character then
@@ -138,6 +137,7 @@ function UpdateLowestHealth()
             })
         end
     end
+    wait(3)
 end
 
 F_P()
@@ -165,7 +165,7 @@ function F_L_H()
         else
             kamera.CameraSubject = localOyuncu.Character.Humanoid
         end
-        wait()
+        wait(3)
     end)
 end
 
