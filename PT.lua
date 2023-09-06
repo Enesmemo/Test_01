@@ -53,12 +53,6 @@ local toggle1 = Section:Toggle({
     end
 })
 
-local label = Section:Label({
-    Text = "",
-    Color = Color3.fromRGB(217, 97, 99),
-    Tooltip = "The Player With The Lowest Health On The Server"
-})
-
 local toggle2 = Section:Toggle({
     Text = "Focus Lowest Health",
     Callback = function(b2)
@@ -70,6 +64,12 @@ local toggle2 = Section:Toggle({
             F_L_H()
         end
     end
+})
+
+local label = Section:Label({
+    Text = "",
+    Color = Color3.fromRGB(217, 97, 99),
+    Tooltip = "The Player With The Lowest Health On The Server"
 })
 
 Tab:Select()
@@ -86,6 +86,10 @@ end
 
 function F_P()
     game:GetService("RunService").Heartbeat:Connect(function()
+        if getgenv().F_L_H then
+            toggle1:Set(false)
+        end
+
         UpdateLowestHealth()
 
         local hedefOyuncu = game.Players:FindFirstChild(getgenv().S_P)
