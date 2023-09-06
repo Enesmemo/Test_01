@@ -87,7 +87,10 @@ end
 function F_P()
     game:GetService("RunService").Heartbeat:Connect(function()
         if getgenv().F_L_H then
-            toggle1:Set(false)
+            if getgenv().F_P then
+                toggle1:Set(false)
+                getgenv().F_P = false
+            end
         end
 
         UpdateLowestHealth()
