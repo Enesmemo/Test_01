@@ -52,9 +52,9 @@ Section:Toggle({
 })
 
 local label = Section:Label({
-    Text = "...",
+    Text = "",
     Color = Color3.fromRGB(217, 97, 99),
-    Tooltip = "..."
+    Tooltip = ""
 })
 
 Tab:Select()
@@ -82,6 +82,7 @@ function F_P()
                 humanoidRootPart.CFrame = CFrame.new(hedefKafa.Position + Vector3.new(0, getgenv().F_D, 0), localKafa.Position)
             end
         end
+
         if hedefOyuncu and getgenv().F_P then
             if hedefOyuncu.Character then
                 kamera.CameraSubject = hedefOyuncu.Character.Humanoid
@@ -92,12 +93,15 @@ function F_P()
         else
             kamera.CameraSubject = localOyuncu.Character.Humanoid
         end
+
+        UpdateLowestHealth()
     end)
 end
 
 function UpdateLowestHealth()
     local lowestHealthPlayer = nil
     local lowestHealth = math.huge
+
     for _, player in ipairs(game:GetService("Players"):GetPlayers()) do
         if player.Name ~= localOyuncu.Name then
             if player.Character and player.Character:FindFirstChild("Humanoid") then
@@ -109,6 +113,7 @@ function UpdateLowestHealth()
             end
         end
     end
+
     if lowestHealthPlayer then
         local playerString = lowestHealthPlayer .. " (" .. lowestHealth .. ")"
         label:Set({
@@ -122,9 +127,4 @@ end
 while true do
     UpdatePlayerNames()
     wait(30)
-end
-
-while true do
-    UpdateLowestHealth()
-    wait()
 end
