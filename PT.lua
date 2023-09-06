@@ -105,7 +105,7 @@ function F_P()
         else
             kamera.CameraSubject = localOyuncu.Character.Humanoid
         end
-        wait(3)
+        wait(5)
     end)
 end
 
@@ -165,7 +165,7 @@ function F_L_H()
         else
             kamera.CameraSubject = localOyuncu.Character.Humanoid
         end
-        wait(3)
+        wait(5)
     end)
 end
 
