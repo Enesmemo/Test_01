@@ -55,7 +55,7 @@ Section:Toggle({
 
 local label = Section:Label({
     Text = "",
-    Color = Color3.fromRGB(255, 255, 255),
+    Color = Color3.fromRGB(255, 255, 255)
     Tooltip = "The Player With The Lowest Health On The Server"
 })
 
