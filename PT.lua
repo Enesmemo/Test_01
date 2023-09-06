@@ -75,7 +75,6 @@ function F_P()
     game:GetService("RunService").Heartbeat:Connect(function()
         UpdateLowestHealth()
         local hedefOyuncu = game.Players:FindFirstChild(getgenv().S_P)
-
         if hedefOyuncu and hedefOyuncu.Character and hedefOyuncu.Character:FindFirstChild("Head") then
             local hedefKafa = hedefOyuncu.Character.Head
             local localKafa = localOyuncu.Character.Head
@@ -85,7 +84,6 @@ function F_P()
                 humanoidRootPart.CFrame = CFrame.new(hedefKafa.Position + Vector3.new(0, getgenv().F_D, 0), localKafa.Position)
             end
         end
-
         if hedefOyuncu and getgenv().F_P then
             if hedefOyuncu.Character then
                 kamera.CameraSubject = hedefOyuncu.Character.Humanoid
@@ -117,7 +115,9 @@ function UpdateLowestHealth()
         local tamSayi = math.floor(lowestHealth)
         local playerString = "P: "..lowestHealthPlayer.. "H: "..tamSayi..
         label:Set({
-            Text = playerString
+            Text = playerString,
+            Color = Color3.fromRGB(255, 255, 255),
+            Tooltip = "The Player With The Lowest Health On The Server"
         })
     end
 end
