@@ -71,6 +71,7 @@ end
 
 function F_P()
     game:GetService("RunService").Heartbeat:Connect(function()
+        UpdateLowestHealth()
         local hedefOyuncu = game.Players:FindFirstChild(getgenv().S_P)
 
         if hedefOyuncu and hedefOyuncu.Character and hedefOyuncu.Character:FindFirstChild("Head") then
@@ -82,7 +83,6 @@ function F_P()
                 humanoidRootPart.CFrame = CFrame.new(hedefKafa.Position + Vector3.new(0, getgenv().F_D, 0), localKafa.Position)
             end
         end
-
         if hedefOyuncu and getgenv().F_P then
             if hedefOyuncu.Character then
                 kamera.CameraSubject = hedefOyuncu.Character.Humanoid
@@ -93,8 +93,6 @@ function F_P()
         else
             kamera.CameraSubject = localOyuncu.Character.Humanoid
         end
-
-        UpdateLowestHealth()
     end)
 end
 
@@ -102,20 +100,22 @@ function UpdateLowestHealth()
     local lowestHealthPlayer = nil
     local lowestHealth = math.huge
 
-    for _, player in ipairs(game:GetService("Players"):GetPlayers()) do
-        if player.Name ~= localOyuncu.Name then
-            if player.Character and player.Character:FindFirstChild("Humanoid") then
-                local humanoid = player.Character.Humanoid
-                if humanoid.Health < lowestHealth then
-                    lowestHealth = humanoid.Health
-                    lowestHealthPlayer = player.Name
+    for i, player in ipairs(players) do
+        local character = player.Character
+        if character then
+            local humanoid = character:FindFirstChild("Humanoid")
+            if humanoid then
+                local health = humanoid.Health
+                if health > 0 and health < lowestHealth then
+                    lowestHealth = health
+                    lowestHealthPlayer = player
                 end
             end
         end
     end
-
     if lowestHealthPlayer then
-        local playerString = lowestHealthPlayer .. " (" .. lowestHealth .. ")"
+        local tamSayi = math.floor(lowestHealth)
+        local playerString = lowestHealthPlayer.Name .. " (" .. tamSayi .. ")"
         label:Set({
             Text = playerString,
             Color = Color3.fromRGB(217, 97, 99),
