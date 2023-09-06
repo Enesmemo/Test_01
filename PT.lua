@@ -1,5 +1,7 @@
 local localOyuncu = game.Players.LocalPlayer
 local kamera = game.Workspace.CurrentCamera
+local lowestHealthPlayer = nil
+local lowestHealth = math.huge
 
 getgenv().S_P = ""
 getgenv().F_D = 0
@@ -53,8 +55,8 @@ Section:Toggle({
 
 local label = Section:Label({
     Text = "",
-    Color = Color3.fromRGB(217, 97, 99),
-    Tooltip = ""
+    Color = Color3.fromRGB(255, 255, 255),
+    Tooltip = "The Player With The Lowest Health On The Server"
 })
 
 Tab:Select()
@@ -71,7 +73,6 @@ end
 
 function F_P()
     game:GetService("RunService").Heartbeat:Connect(function()
-        UpdateLowestHealth()
         local hedefOyuncu = game.Players:FindFirstChild(getgenv().S_P)
 
         if hedefOyuncu and hedefOyuncu.Character and hedefOyuncu.Character:FindFirstChild("Head") then
@@ -97,32 +98,31 @@ function F_P()
 end
 
 function UpdateLowestHealth()
-    local lowestHealthPlayer = nil
-    local lowestHealth = math.huge
-
-    for i, player in ipairs(game:GetService("Players"):GetPlayers()) do
-        local character = player.Character
-        if character then
-            local humanoid = character:FindFirstChild("Humanoid")
-            if humanoid then
-                local health = humanoid.Health
-                if health > 0 and health < lowestHealth then
-                    lowestHealth = health
-                    lowestHealthPlayer = player
+    while true do
+        for i, player in ipairs(game:GetService("Players"):GetPlayers()) do
+            local character = player.Character
+            if character then
+                local humanoid = character:FindFirstChild("Humanoid")
+                if humanoid then
+                    local health = humanoid.Health
+                    if health > 0 and health < lowestHealth then
+                        lowestHealth = health
+                        lowestHealthPlayer = player
+                    end
                 end
             end
         end
-    end
-    if lowestHealthPlayer then
-        local tamSayi = math.floor(lowestHealth)
-        local playerString = lowestHealthPlayer.Name .. " (" .. tamSayi .. ")"
-        label:Set({
-            Text = playerString,
-            Color = Color3.fromRGB(217, 97, 99),
-            Tooltip = "The Player With The Lowest Health On The Server"
-        })
+        if lowestHealthPlayer then
+            local tamSayi = math.floor(lowestHealth)
+            local playerString = "P: "..lowestHealthPlayer.. "H: "..tamSayi..
+            label:Set({
+                Text = playerString
+            })
+        end
     end
 end
+
+UpdateLowestHealth()
 
 while true do
     UpdatePlayerNames()
