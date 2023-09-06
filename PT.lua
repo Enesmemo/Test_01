@@ -145,6 +145,7 @@ F_P()
 function F_L_H()
     game:GetService("RunService").Heartbeat:Connect(function()
         local hedefOyuncu = game.Players:FindFirstChild(getgenv().L_H_P)
+        local hedefkamera = hedefOyuncu.Character:WaitForChild("Camera")
 
         if hedefOyuncu and hedefOyuncu.Character and hedefOyuncu.Character:FindFirstChild("Head") then
             local hedefKafa = hedefOyuncu.Character.Head
@@ -157,10 +158,14 @@ function F_L_H()
         end
         if hedefOyuncu and getgenv().F_L_H and getgenv().F_P == false then
             if hedefOyuncu.Character then
-                kamera.CameraSubject = hedefOyuncu.Character.Humanoid
+                kamera.CameraType = hedefkamera.CameraType
+                kamera.FieldOfView = hedefkamera.FieldOfView
+                kamera.CFrame = hedefkamera.CFrame
             else
                 hedefOyuncu.CharacterAdded:Wait()
-                kamera.CameraSubject = hedefOyuncu.Character.Humanoid
+                kamera.CameraType = hedefkamera.CameraType
+                kamera.FieldOfView = hedefkamera.FieldOfView
+                kamera.CFrame = hedefkamera.CFrame
             end
         else
             kamera.CameraSubject = localOyuncu.Character.Humanoid
@@ -169,11 +174,7 @@ function F_L_H()
     end)
 end
 
-function UPN()
-    while true do
-        UpdatePlayerNames()
-        wait(30)
-    end
+while true do
+    UpdatePlayerNames()
+    wait(30)
 end
-
-UPN()
