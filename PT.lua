@@ -21,7 +21,7 @@ local Section = Tab:Section({
 })
 
 local dropdown = Section:Dropdown({
-    Text = "Choose Player",
+    Text = "Select Player",
     List = {},
     Flag = "Choosen",
     Callback = function(s)
@@ -29,9 +29,10 @@ local dropdown = Section:Dropdown({
     end
 })
 
-Section:RadioButton({
+local dropdown = Section:Dropdown({
     Text = "Following Distance",
-    Options = {"-7","-6","-5","-4","-3","-2","-1","0"},
+    List = {"-7","-6","-5","-4","-3","-2","-1","0"},
+    Flag = "Choosen",
     Callback = function(v)
         getgenv().F_D = v
     end
@@ -75,7 +76,6 @@ function F_P()
                 humanoidRootPart.CFrame = CFrame.new(hedefKafa.Position + Vector3.new(0, getgenv().F_D, 0), localKafa.Position)
             end
         end
-
         if hedefOyuncu and getgenv().F_P then
             if hedefOyuncu.Character then
                 kamera.CameraSubject = hedefOyuncu.Character.Humanoid
