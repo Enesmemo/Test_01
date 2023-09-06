@@ -42,7 +42,7 @@ local dropdown2 = Section:Dropdown({
 
 Section:RadioButton({
     Text = "Targeting Mod",
-    Options = {"Focus Selected","Focus Lowest Health","Off"},
+    Options = {"Focus On Selected","Focus On Lowest Health","Off"},
     Callback = function(b)
         if b == "Focus Selected" then
             getgenv().F_P = true
@@ -64,7 +64,7 @@ Section:RadioButton({
 })
 
 local label = Section:Label({
-    Text = "",
+    Text = "Minimum Health 100",
     Color = Color3.fromRGB(217, 97, 99),
     Tooltip = "The Player With The Lowest Health On The Server"
 })
