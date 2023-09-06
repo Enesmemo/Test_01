@@ -86,13 +86,6 @@ end
 
 function F_P()
     game:GetService("RunService").Heartbeat:Connect(function()
-        if getgenv().F_L_H then
-            if getgenv().F_P then
-                toggle1:Set(false)
-                getgenv().F_P = false
-            end
-        end
-
         UpdateLowestHealth()
 
         local hedefOyuncu = game.Players:FindFirstChild(getgenv().S_P)
