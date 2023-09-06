@@ -1,7 +1,5 @@
 local localOyuncu = game.Players.LocalPlayer
 local kamera = game.Workspace.CurrentCamera
-local lowestHealthPlayer = nil
-local lowestHealth = math.huge
 
 getgenv().S_P = ""
 getgenv().F_D = 0
@@ -73,11 +71,10 @@ end
 
 function F_P()
     game:GetService("RunService").Heartbeat:Connect(function()
-        while true do
-            UpdateLowestHealth()
-            wait()
-        end
-        local hedefOyuncu = game.Players:FindFirstChild(getgenv().S_P)    
+        UpdateLowestHealth()
+
+        local hedefOyuncu = game.Players:FindFirstChild(getgenv().S_P)
+
         if hedefOyuncu and hedefOyuncu.Character and hedefOyuncu.Character:FindFirstChild("Head") then
             local hedefKafa = hedefOyuncu.Character.Head
             local localKafa = localOyuncu.Character.Head
@@ -87,6 +84,7 @@ function F_P()
                 humanoidRootPart.CFrame = CFrame.new(hedefKafa.Position + Vector3.new(0, getgenv().F_D, 0), localKafa.Position)
             end
         end
+
         if hedefOyuncu and getgenv().F_P then
             if hedefOyuncu.Character then
                 kamera.CameraSubject = hedefOyuncu.Character.Humanoid
@@ -101,31 +99,35 @@ function F_P()
 end
 
 function UpdateLowestHealth()
+    local lowestHealthPlayer = nil
+    local lowestHealth = math.huge
+
     for i, player in ipairs(game:GetService("Players"):GetPlayers()) do
-        if player.Name ~= localOyuncu.Name then
-            local character = player.Character
-            if character then
-                local humanoid = character:FindFirstChild("Humanoid")
-                if humanoid then
-                    local health = humanoid.Health
-                    if health > 0 and health < lowestHealth then
-                        lowestHealth = health
-                        lowestHealthPlayer = player
-                    end
+        local character = player.Character
+        if character then
+            local humanoid = character:FindFirstChild("Humanoid")
+            if humanoid then
+                local health = humanoid.Health
+                if health > 0 and health < lowestHealth then
+                    lowestHealth = health
+                    lowestHealthPlayer = player
                 end
             end
         end
     end
+
     if lowestHealthPlayer then
-        local tamSayi = math.floor(lowestHealth)
-        local playerString = lowestHealthPlayer.Name .. " (" .. tamSayi .. ")"
-        label:Set({
-            Text = playerString,
-        })
+        if lowestHealthPlayer.Name ~= localOyuncu.Name then
+            local tamSayi = math.floor(lowestHealth)
+            local playerString = lowestHealthPlayer.Name .. " (" .. tamSayi .. ")"
+            label:Set({
+                Text = playerString,
+                Color = Color3.fromRGB(217, 97, 99),
+                Tooltip = "The Player With The Lowest Health On The Server"
+            })
+        end
     end
 end
-
-F_P()
 
 while true do
     UpdatePlayerNames()
