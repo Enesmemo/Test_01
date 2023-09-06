@@ -44,12 +44,12 @@ Section:RadioButton({
     Text = "Targeting Mod",
     Options = {"Focus On Selected","Focus On Lowest Health","Off"},
     Callback = function(b)
-        if b == "Focus Selected" then
+        if b == "Focus On Selected" then
             getgenv().F_P = true
             getgenv().F_L_H = false
             F_P()
         end
-        if b == "Focus Lowest Health" then
+        if b == "Focus On Lowest Health" then
             getgenv().F_L_H = true
             getgenv().F_P = false
             F_L_H()
