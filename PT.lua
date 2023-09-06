@@ -52,9 +52,9 @@ Section:Toggle({
 })
 
 local label = Section:Label({
-    Text = "",
+    Text = "...",
     Color = Color3.fromRGB(217, 97, 99),
-    Tooltip = "The Player With The Lowest Health On The Server"
+    Tooltip = "..."
 })
 
 Tab:Select()
@@ -82,7 +82,6 @@ function F_P()
                 humanoidRootPart.CFrame = CFrame.new(hedefKafa.Position + Vector3.new(0, getgenv().F_D, 0), localKafa.Position)
             end
         end
-
         if hedefOyuncu and getgenv().F_P then
             if hedefOyuncu.Character then
                 kamera.CameraSubject = hedefOyuncu.Character.Humanoid
@@ -114,7 +113,8 @@ function UpdateLowestHealth()
         local playerString = lowestHealthPlayer .. " (" .. lowestHealth .. ")"
         label:Set({
             Text = playerString,
-            Color = Color3.fromRGB(255, 255, 255) -- İstediğin bir renk seçebilirsin
+            Color = Color3.fromRGB(217, 97, 99),
+            Tooltip = "The Player With The Lowest Health On The Server"
         })
     end
 end
