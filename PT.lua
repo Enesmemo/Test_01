@@ -20,7 +20,7 @@ local Section = Tab:Section({
     Text = "Targeting Settings"
 })
 
-local dropdown = Section:Dropdown({
+local dropdown1 = Section:Dropdown({
     Text = "Select Player",
     List = {},
     Flag = "Choosen",
@@ -29,7 +29,7 @@ local dropdown = Section:Dropdown({
     end
 })
 
-local dropdown = Section:Dropdown({
+local dropdown2 = Section:Dropdown({
     Text = "Following Distance",
     List = {"-7","-6","-5","-4","-3","-2","-1","0"},
     Flag = "Choosen",
