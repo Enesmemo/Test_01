@@ -51,6 +51,12 @@ Section:Toggle({
     end
 })
 
+local label = Section:Label({
+    Text = "This is a label.",
+    Color = Color3.fromRGB(217, 97, 99),
+    Tooltip = "This is a label."
+})
+
 Tab:Select()
 
 local function UpdatePlayerNames()
@@ -66,7 +72,6 @@ end
 function F_P()
     game:GetService("RunService").Heartbeat:Connect(function()
         local hedefOyuncu = game.Players:FindFirstChild(getgenv().S_P)
-    
         if hedefOyuncu and hedefOyuncu.Character and hedefOyuncu.Character:FindFirstChild("Head") then
             local hedefKafa = hedefOyuncu.Character.Head
             local localKafa = localOyuncu.Character.Head
