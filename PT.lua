@@ -41,7 +41,7 @@ local dropdown2 = Section:Dropdown({
 })
 
 local toggle1 = Section:Toggle({
-    Text = "Focus Selected Player",
+    Text = "Focus Selected",
     Callback = function(b)
         if b then
             if getgenv().F_L_H == false then
@@ -59,7 +59,7 @@ local toggle1 = Section:Toggle({
 })
 
 local toggle2 = Section:Toggle({
-    Text = "Focus Lowest Health Player",
+    Text = "Focus Lowest Health",
     Callback = function(b2)
         if b2 then
             if getgenv().F_P == false then
