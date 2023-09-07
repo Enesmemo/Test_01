@@ -115,7 +115,9 @@ function F_P()
                 end
             end
         else
-            kamera.CameraSubject = localOyuncu.Character.Humanoid
+            if getgenv().S_P ~= "" then
+                kamera.CameraSubject = localOyuncu.Character.Humanoid
+            end
         end
         if getgenv().F_P == false and getgenv().F_L_H == false then
             kamera.CameraSubject = localOyuncu.Character.Humanoid
