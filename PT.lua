@@ -96,7 +96,7 @@ function F_P()
                 humanoidRootPart.CFrame = CFrame.new(hedefKafa.Position + Vector3.new(0, getgenv().F_D, 0), localKafa.Position)
             end
         end
-        if hedefOyuncu and hedefOyuncu2 then
+        if hedefOyuncu then
             if hedefOyuncu.Character and hedefOyuncu2.Character then
                 if getgenv().F_P and getgenv().F_L_H == false then
                     kamera.CameraSubject = hedefOyuncu.Character.Humanoid
