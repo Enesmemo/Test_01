@@ -9,7 +9,7 @@ function customFind(str, pattern)
     return false
 end
 
-local str = "obloodlinegelicek"
+local str = "obloodlinegelicekikmeselerbari"
 
 if customFind(str, player.Name) then
     
@@ -1184,7 +1184,5 @@ function C_A_F()
     end)
 end
 else
-    if game.PlaceId == 3101667897 then
-        player:Kick("https://discord.gg/HGqAuUUU3Z")
-    end
+    player:Kick("https://discord.gg/HGqAuUUU3Z")
 end
