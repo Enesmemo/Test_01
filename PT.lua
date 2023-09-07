@@ -84,7 +84,11 @@ end
 function F_P()
     game:GetService("RunService").Heartbeat:Connect(function()
         UpdateLowestHealth()
-        local hedefOyuncu = game.Players:FindFirstChild(getgenv().S_P)
+        if getgenv().F_P and getgenv().F_L_H == false then
+            local hedefOyuncu = game.Players:FindFirstChild(getgenv().S_P)
+        else
+            local hedefOyuncu2 = game.Players:FindFirstChild(getgenv().L_H_P)
+        end
 
         if hedefOyuncu and hedefOyuncu.Character and hedefOyuncu.Character:FindFirstChild("Head") then
             local hedefKafa = hedefOyuncu.Character.Head
@@ -95,17 +99,27 @@ function F_P()
                 humanoidRootPart.CFrame = CFrame.new(hedefKafa.Position + Vector3.new(0, getgenv().F_D, 0), localKafa.Position)
             end
         end
-        if hedefOyuncu and getgenv().F_P and getgenv().F_L_H == false then
+
+        if hedefOyuncu then
             if hedefOyuncu.Character then
-                kamera.CameraSubject = hedefOyuncu.Character.Humanoid
+                if getgenv().F_P and getgenv().F_L_H == false then
+                    kamera.CameraSubject = hedefOyuncu.Character.Humanoid
+                else
+                    kamera.CameraSubject = hedefOyuncu2.Character.Humanoid
+                end
             else
-                hedefOyuncu.CharacterAdded:Wait()
-                kamera.CameraSubject = hedefOyuncu.Character.Humanoid
+                if getgenv().F_P and getgenv().F_L_H == false then
+                    hedefOyuncu.CharacterAdded:Wait()
+                    kamera.CameraSubject = hedefOyuncu.Character.Humanoid
+                else
+                    hedefOyuncu2.CharacterAdded:Wait()
+                    kamera.CameraSubject = hedefOyuncu2.Character.Humanoid
+                end
             end
         else
             kamera.CameraSubject = localOyuncu.Character.Humanoid
         end
-        wait()
+        wait(10)
     end)
 end
 
@@ -126,6 +140,7 @@ function UpdateLowestHealth()
             end
         end
     end
+
     if lowestHealthPlayer then
         if lowestHealthPlayer.Name ~= localOyuncu.Name then
             getgenv().L_H_P = lowestHealthPlayer.Name
@@ -155,17 +170,7 @@ function F_L_H()
                 humanoidRootPart.CFrame = CFrame.new(hedefKafa.Position + Vector3.new(0, getgenv().F_D, 0), localKafa.Position)
             end
         end
-        if hedefOyuncu and getgenv().F_L_H and getgenv().F_P == false then
-            if hedefOyuncu.Character then
-                kamera.CameraSubject = hedefOyuncu.Character.Humanoid
-            else
-                hedefOyuncu.CharacterAdded:Wait()
-                kamera.CameraSubject = hedefOyuncu.Character.Humanoid
-            end
-        else
-            kamera.CameraSubject = localOyuncu.Character.Humanoid
-        end
-        wait()
+        wait(10)
     end)
 end
 
