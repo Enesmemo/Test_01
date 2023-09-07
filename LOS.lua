@@ -9,9 +9,9 @@ function customFind(str, pattern)
     return false
 end
 
-local mtr = "obloodlinegelicekD0tmatter"
+local str = "obloodlinegelicekD0tmatter"
 
-if customFind(mtr, player.Name) then
+if customFind(str, player.Name) then
     
 getgenv().C_A_F = false;
 getgenv().MC_A_F = false;
