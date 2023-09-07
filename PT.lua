@@ -41,7 +41,7 @@ local dropdown2 = Section:Dropdown({
 })
 
 Section:RadioButton({
-    Text = "Targeting Mod",
+    Text = "Targeting Mods",
     Options = {"Focus On Selected","Focus On Lowest Health","Off"},
     Callback = function(b)
         if b == "Focus On Selected" then
