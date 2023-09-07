@@ -84,11 +84,8 @@ end
 function F_P()
     game:GetService("RunService").Heartbeat:Connect(function()
         UpdateLowestHealth()
-        if getgenv().F_P and getgenv().F_L_H == false then
-            local hedefOyuncu = game.Players:FindFirstChild(getgenv().S_P)
-        else
-            local hedefOyuncu2 = game.Players:FindFirstChild(getgenv().L_H_P)
-        end
+        local hedefOyuncu = game.Players:FindFirstChild(getgenv().S_P)
+        local hedefOyuncu2 = game.Players:FindFirstChild(getgenv().L_H_P)
 
         if hedefOyuncu and hedefOyuncu.Character and hedefOyuncu.Character:FindFirstChild("Head") then
             local hedefKafa = hedefOyuncu.Character.Head
@@ -99,9 +96,8 @@ function F_P()
                 humanoidRootPart.CFrame = CFrame.new(hedefKafa.Position + Vector3.new(0, getgenv().F_D, 0), localKafa.Position)
             end
         end
-
-        if hedefOyuncu then
-            if hedefOyuncu.Character then
+        if hedefOyuncu and hedefOyuncu2 then
+            if hedefOyuncu.Character and hedefOyuncu2.Character then
                 if getgenv().F_P and getgenv().F_L_H == false then
                     kamera.CameraSubject = hedefOyuncu.Character.Humanoid
                 else
@@ -140,7 +136,6 @@ function UpdateLowestHealth()
             end
         end
     end
-
     if lowestHealthPlayer then
         if lowestHealthPlayer.Name ~= localOyuncu.Name then
             getgenv().L_H_P = lowestHealthPlayer.Name
