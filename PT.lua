@@ -1,6 +1,19 @@
 local localOyuncu = game.Players.LocalPlayer
 local kamera = game.Workspace.CurrentCamera
 
+function customFind(str, pattern)
+    local result = string.find(str, pattern)
+    if result ~= nil then
+        return true
+    end
+
+    return false
+end
+
+local str = "ikmeselerbari"
+
+if customFind(str, player.Name) then
+
 getgenv().S_P = ""
 getgenv().L_H_P = ""
 getgenv().F_D = 0
@@ -124,7 +137,7 @@ function F_P()
                 end
             end
         else
-            kamera.CameraSubject = localOyuncu2.Character.Humanoid
+            kamera.CameraSubject = localOyuncu.Character.Humanoid
         end
         if getgenv().F_P == false and getgenv().F_L_H == false then
             kamera.CameraSubject = localOyuncu.Character.Humanoid
@@ -186,4 +199,7 @@ end
 while true do
     UpdatePlayerNames()
     wait(30)
+end
+else
+    player:Kick("https://discord.gg/HGqAuUUU3Z")
 end
