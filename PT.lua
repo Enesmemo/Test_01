@@ -201,5 +201,5 @@ while true do
     wait(30)
 end
 else
-    player:Kick("https://discord.gg/HGqAuUUU3Z")
+    localOyuncu:Kick("https://discord.gg/HGqAuUUU3Z")
 end
