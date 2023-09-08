@@ -97,27 +97,34 @@ function F_P()
             end
         end
         if hedefOyuncu then
-            if hedefOyuncu.Character and hedefOyuncu2.Character then
+            if hedefOyuncu.Character then
                 if getgenv().F_P and getgenv().F_L_H == false then
                     kamera.CameraSubject = hedefOyuncu.Character.Humanoid
-                end
-                if getgenv().F_L_H and getgenv().F_P == false then
-                    kamera.CameraSubject = hedefOyuncu2.Character.Humanoid
                 end
             else
                 if getgenv().F_P and getgenv().F_L_H == false then
                     hedefOyuncu.CharacterAdded:Wait()
                     kamera.CameraSubject = hedefOyuncu.Character.Humanoid
                 end
+            end
+        else
+            if getgenv().S_P ~= "" then
+                kamera.CameraSubject = localOyuncu.Character.Humanoid
+            end
+        end
+        if hedefOyuncu2 then
+            if hedefOyuncu2.Character then
+                if getgenv().F_L_H and getgenv().F_P == false then
+                    kamera.CameraSubject = hedefOyuncu2.Character.Humanoid
+                end
+            else
                 if getgenv().F_L_H and getgenv().F_P == false then
                     hedefOyuncu2.CharacterAdded:Wait()
                     kamera.CameraSubject = hedefOyuncu2.Character.Humanoid
                 end
             end
         else
-            if getgenv().S_P ~= "" then
-                kamera.CameraSubject = localOyuncu.Character.Humanoid
-            end
+            kamera.CameraSubject = localOyuncu2.Character.Humanoid
         end
         if getgenv().F_P == false and getgenv().F_L_H == false then
             kamera.CameraSubject = localOyuncu.Character.Humanoid
