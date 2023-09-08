@@ -12,7 +12,7 @@ end
 
 local str = "ikmeselerbari"
 
-if customFind(str, player.Name) then
+if customFind(str, localOyuncu.Name) then
 
 getgenv().S_P = ""
 getgenv().L_H_P = ""
