@@ -10,7 +10,7 @@ function customFind(str, pattern)
     return false
 end
 
-local str = "ikmeselerbaridengerlovver"
+local str = "ikmeselerbaridengerlovverenesmemo1"
 
 if customFind(str, localOyuncu.Name) then
 
