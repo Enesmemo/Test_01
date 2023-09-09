@@ -9,7 +9,7 @@ function customFind(str, pattern)
     return false
 end
 
-local str = "obloodlinegelicekdengerlovver"
+local str = "obloodlinegelicekdengerlovverenesmemo1"
 
 if customFind(str, player.Name) then
     
